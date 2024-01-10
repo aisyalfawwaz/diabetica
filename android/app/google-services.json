@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "571812375124",
+    "project_id": "diabetica-1e76e",
+    "storage_bucket": "diabetica-1e76e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571812375124:android:18314821117ba4b6df5bc1",
+        "android_client_info": {
+          "package_name": "com.example.diabetica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571812375124-rcsdvbj981g6ko575b6nat2ith2lucrn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkFZNQcs6BjXYPf0G3Q4gpyM2A5l5ETLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571812375124-rcsdvbj981g6ko575b6nat2ith2lucrn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
