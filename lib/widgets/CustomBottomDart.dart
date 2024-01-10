@@ -1,8 +1,9 @@
+import 'package:diabetica/pages/ConsultationPage.dart';
 import 'package:diabetica/pages/FeaturePage.dart';
 import 'package:diabetica/pages/HistoryPage.dart';
 import 'package:diabetica/pages/HomePage.dart';
+import 'package:diabetica/pages/MedicineListPage.dart';
 import 'package:diabetica/pages/ProfilePage.dart';
-import 'package:diabetica/pages/UserDataForm.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -40,8 +41,11 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         children: [
           HomePage(), // Ganti dengan widget HomePage
           HistoryPage(), // Ganti dengan widget HistoryPage
-          UserDataForm(),
-          FeaturePage(),
+          // UserDataForm(),
+          ConsultationPage(),
+          // DataFetchingPage(),
+          MedicineListPage(),
+          // FeaturePage(),
           ProfilePage(),
         ],
       ),

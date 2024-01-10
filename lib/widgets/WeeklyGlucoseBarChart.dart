@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class GlucoseBarChart extends StatelessWidget {
+class WeeklyGlucoseBarChart extends StatelessWidget {
   final List<DataPoint> glucoseData;
 
-  const GlucoseBarChart({required this.glucoseData});
+  const WeeklyGlucoseBarChart({required this.glucoseData});
 
   @override
   Widget build(BuildContext context) {

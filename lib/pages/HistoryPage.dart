@@ -1,13 +1,27 @@
 import 'package:diabetica/models/DataPoint.dart';
+import 'package:diabetica/widgets/MonthlyGlucoseBarChart.dart';
+import 'package:diabetica/widgets/WeeklyGlucoseBarChart.dart';
 import 'package:diabetica/widgets/GlucoseInfoCard.dart';
-import 'package:diabetica/widgets/GlucoseBarChart.dart';
+import 'package:diabetica/widgets/YearlyGlucoseBarChart.dart';
 import 'package:flutter/material.dart';
 
-class HistoryPage extends StatelessWidget {
+class HistoryPage extends StatefulWidget {
+  @override
+  _HistoryPageState createState() => _HistoryPageState();
+}
+
+class _HistoryPageState extends State<HistoryPage> {
+  late List<DataPoint> glucoseData;
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    glucoseData = _getGlucoseData();
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<DataPoint> glucoseData = _getGlucoseData();
-
     return Scaffold(
       body: ListView(
         children: [
@@ -17,8 +31,14 @@ class HistoryPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 _buildSectionTitle('Glucose History', Icons.history),
-                GlucoseBarChart(glucoseData: glucoseData),
-                SizedBox(height: 20),
+                _buildTabBar(),
+                if (_currentIndex == 0) // Show GlucoseBarChart for weekly view
+                  WeeklyGlucoseBarChart(glucoseData: glucoseData),
+                if (_currentIndex == 1) // Show monthly view widget here
+                  MonthlyGlucoseBarChart(glucoseData: glucoseData),
+                if (_currentIndex == 2) // Show yearly view widget here
+                  YearlyGlucoseBarChart(glucoseData: glucoseData),
+                const SizedBox(height: 20),
                 _buildSectionTitle('Last Glucose Information', Icons.info),
                 SizedBox(height: 10),
                 GlucoseInfoCard(
@@ -37,6 +57,7 @@ class HistoryPage extends StatelessWidget {
                   title: 'Diabetes Status',
                   value: 'Normal',
                 ),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -51,7 +72,7 @@ class HistoryPage extends StatelessWidget {
         Icon(
           icon,
           size: 20,
-          color: Colors.blue, // Change the color as needed
+          color: Colors.blue,
         ),
         SizedBox(width: 8),
         Text(
@@ -59,6 +80,55 @@ class HistoryPage extends StatelessWidget {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ],
+    );
+  }
+
+  Widget _buildTabBar() {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _buildTabItem('Weekly', 0),
+          _buildTabItem('Monthly', 1),
+          _buildTabItem('Yearly', 2),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTabItem(String text, int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _currentIndex = index;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: _currentIndex == index ? Colors.blue : Colors.transparent,
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: _currentIndex == index ? Colors.white : Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildYearlyWidget() {
+    // Implement yearly view widget here
+    return Container(
+      height: 200,
+      color: Colors.green,
+      child: Center(
+        child: Text('Yearly View Widget'),
+      ),
     );
   }
 

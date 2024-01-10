@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends StatelessWidget {
-  const ProfileWidget({super.key});
+  const ProfileWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,87 +11,97 @@ class ProfileWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 80,
-              backgroundImage: AssetImage('assets/profile_image.png'),
+              backgroundImage: NetworkImage(
+                'https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG.png',
+              ),
             ),
-            const SizedBox(height: 20),
-            const Text(
+            SizedBox(height: 20),
+            Text(
               'Aisy Al Fawwaz',
               style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black), // Berikan warna putih pada teks
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 8),
-            const Text(
+            SizedBox(height: 8),
+            Text(
               '21 Tahun',
               style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black), // Berikan warna putih pada teks
+                fontSize: 18,
+                color: Colors.black,
+              ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30),
             Card(
               elevation: 5,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              color: Colors.blue[700], // Berikan warna biru laut pada Card
+              margin:
+                  EdgeInsets.fromLTRB(20, 0, 20, 20), // Tambahkan margin bawah
+              color: Colors.blue[700],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(12),
                     child: Text(
                       'Informasi Kesehatan',
                       style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white), // Berikan warna putih pada teks
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  const Divider(
-                      color: Colors.white), // Berikan warna putih pada Divider
+                  Divider(
+                    color: Colors.white,
+                  ),
                   ListTile(
-                    leading: const Icon(Icons.favorite,
-                        color: Colors.red), // Berikan warna merah pada ikon
-                    title: const Text('Riwayat Glukosa',
-                        style: TextStyle(
-                            color:
-                                Colors.white)), // Berikan warna putih pada teks
+                    leading: Icon(Icons.favorite, color: Colors.red),
+                    title: Text(
+                      'Riwayat Glukosa',
+                      style: TextStyle(color: Colors.white),
+                    ),
                     onTap: () {
                       // Navigasi ke riwayat glukosa
                     },
                   ),
-                  const Divider(
-                      color: Colors.white), // Berikan warna putih pada Divider
+                  Divider(
+                    color: Colors.white,
+                  ),
                   ListTile(
-                    leading: const Icon(Icons.article,
-                        color: Colors.green), // Berikan warna hijau pada ikon
-                    title: const Text('Artikel Kesehatan',
-                        style: TextStyle(
-                            color:
-                                Colors.white)), // Berikan warna putih pada teks
+                    leading: Icon(Icons.article, color: Colors.green),
+                    title: Text(
+                      'Artikel Kesehatan',
+                      style: TextStyle(color: Colors.white),
+                    ),
                     onTap: () {
                       // Navigasi ke halaman artikel kesehatan
                     },
                   ),
-                  const Divider(
-                      color: Colors.white), // Berikan warna putih pada Divider
+                  Divider(
+                    color: Colors.white,
+                  ),
                   ListTile(
-                    leading: const Icon(Icons.schedule,
-                        color: Colors.blue), // Berikan warna biru pada ikon
-                    title: const Text('Jadwal Kesehatan',
-                        style: TextStyle(
-                            color:
-                                Colors.white)), // Berikan warna putih pada teks
+                    leading: Icon(Icons.schedule, color: Colors.blue),
+                    title: Text(
+                      'Jadwal Kesehatan',
+                      style: TextStyle(color: Colors.white),
+                    ),
                     onTap: () {
                       // Navigasi ke jadwal kesehatan
                     },
                   ),
-                  const Divider(
-                      color: Colors.white), // Berikan warna putih pada Divider
+                  Divider(
+                    color: Colors.white,
+                  ),
                   // Tambahkan fitur-fitur kesehatan lainnya
                 ],
               ),

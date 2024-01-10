@@ -1,8 +1,10 @@
+import 'package:diabetica/widgets/DiabeticRiskCalculatorCard.dart';
+import 'package:diabetica/widgets/DiabeticaCareListView.dart';
 import 'package:flutter/material.dart';
-import 'package:diabetica/widgets/FeaturesWidget.dart';
-import 'package:diabetica/widgets/HealthInfoCard.dart';
+
+import 'package:diabetica/widgets/DiabeticRiskCalculatorCard.dart';
+import 'package:flutter/material.dart';
 import 'package:diabetica/widgets/HorizontalListView.dart';
-import 'package:diabetica/widgets/UserProfileWidget.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -14,31 +16,32 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              UserProfileWidget(),
-              SizedBox(height: 20),
-              HorizontalListView(),
+              DiabeticRiskCalculatorCard(
+                icon: Icons.dangerous,
+                riskValue: 70,
+              ),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    child: HealthInfoCard(
-                      title: 'Heart Rate',
-                      value: '80 bpm',
+                  Text(
+                    'Diabetica Care',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 4, 72, 16),
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: HealthInfoCard(
-                      title: 'Diabetes Risk Value',
-                      value: 'Low',
-                    ),
+                  TextButton(
+                    onPressed: () {
+                      // Action to view all
+                    },
+                    child: Text('View All'),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
-              FeaturesWidget(),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
+              DiabeticaCareListView(), // Menggunakan widget HorizontalListView di sini
             ],
           ),
         ),
