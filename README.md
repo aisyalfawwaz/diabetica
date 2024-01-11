@@ -60,7 +60,6 @@ To get started with Diabetica, follow the instructions below.
 #### Frontend (Flutter)
 
 ```bash
-cd frontend
 flutter pub get
 flutter run
 ```
