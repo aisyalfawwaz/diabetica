@@ -1,8 +1,6 @@
 # Diabetica Health Management App
 
-<p align="center">
-  <img src="link_to_your_logo.png" alt="Diabetica Logo">
-</p>
+
 
 ## Table of Contents
 
