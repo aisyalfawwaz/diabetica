@@ -1,50 +1,50 @@
-import 'package:diabetica/widgets/DiabeticRiskCalculatorCard.dart';
-import 'package:diabetica/widgets/DiabeticaCareListView.dart';
-import 'package:flutter/material.dart';
-
+import 'package:diabetica/pages/MenuBottomSheet.dart';
 import 'package:diabetica/widgets/DiabeticRiskCalculatorCard.dart';
 import 'package:flutter/material.dart';
-import 'package:diabetica/widgets/HorizontalListView.dart';
+import 'package:diabetica/widgets/DiabeticRiskCard.dart';
+import 'package:diabetica/widgets/DiabeticaCareFeature.dart';
+import 'package:diabetica/widgets/EmoticonButton.dart';
+import 'package:diabetica/widgets/UserProfileWidget.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              DiabeticRiskCalculatorCard(
-                icon: Icons.dangerous,
-                riskValue: 70,
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+      body: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: EdgeInsets.all(16.0),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  SizedBox(height: 30),
+                  UserProfileWidget(),
+                  SizedBox(height: 20),
                   Text(
-                    'Diabetica Care',
+                    'How do you exercise today?',
                     style: TextStyle(
-                      color: Color.fromARGB(255, 4, 72, 16),
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      // Action to view all
-                    },
-                    child: Text('View All'),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      EmoticonButton(icon: Icons.sentiment_satisfied),
+                      EmoticonButton(icon: Icons.sentiment_neutral),
+                      EmoticonButton(icon: Icons.sentiment_dissatisfied),
+                    ],
                   ),
+                  // DiabeticRiskCard(),
+                  DiabeticRiskCalculatorCard(
+                      icon: Icons.access_alarm, riskValue: 99)
+                  // DiabeticaCareWidget(),
                 ],
               ),
-              SizedBox(height: 10),
-              DiabeticaCareListView(), // Menggunakan widget HorizontalListView di sini
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

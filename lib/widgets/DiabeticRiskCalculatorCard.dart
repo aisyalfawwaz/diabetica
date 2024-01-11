@@ -74,8 +74,8 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 243, 219, 139),
-                  Color.fromARGB(255, 230, 179, 104)
+                  Color.fromARGB(255, 32, 32, 31),
+                  Color.fromARGB(255, 53, 53, 53)
                 ],
               ),
             ),

@@ -1,5 +1,4 @@
 import 'package:diabetica/pages/ConsultationPage.dart';
-import 'package:diabetica/pages/FeaturePage.dart';
 import 'package:diabetica/pages/HistoryPage.dart';
 import 'package:diabetica/pages/HomePage.dart';
 import 'package:diabetica/pages/MedicineListPage.dart';
@@ -12,9 +11,13 @@ class CustomBottomBar extends StatefulWidget {
   _CustomBottomBarState createState() => _CustomBottomBarState();
 }
 
-class _CustomBottomBarState extends State<CustomBottomBar> {
+class _CustomBottomBarState extends State<CustomBottomBar>
+    with AutomaticKeepAliveClientMixin {
   int _currentIndex = 0;
   late PageController _pageController;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -23,13 +26,9 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   }
 
   @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    super.build(context); // Ensure that super.build is called
+
     return Scaffold(
       body: PageView(
         controller: _pageController,

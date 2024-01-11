@@ -1,79 +1,54 @@
-// ignore_for_file: file_names, library_private_types_in_public_api, use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 
-class UserProfileWidget extends StatefulWidget {
-  @override
-  _UserProfileWidgetState createState() => _UserProfileWidgetState();
-}
-
-class _UserProfileWidgetState extends State<UserProfileWidget>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 300),
-    );
-    _animation = Tween<double>(begin: 1.0, end: 0.6).animate(_controller);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class UserProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 30), // Menambahkan margin top
-      child: Row(
-        children: [
-          const CircleAvatar(
-            radius: 30,
-            backgroundImage: NetworkImage(
-              'https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG.png',
-            ),
-          ),
-          const SizedBox(width: 10),
-          const Expanded(
-            child: Text(
-              'Diabetica', // Mengganti teks 'John Doe' menjadi 'Diabetica'
-              style: TextStyle(
-                fontSize: 35,
-                color: Colors.blue,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Poppins',
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                radius: 30,
+                // Add user profile image here
               ),
-              textAlign: TextAlign.center, // Agar teks di-center
             ),
-          ),
-          IconButton(
-            icon: AnimatedBuilder(
-              animation: _animation,
-              builder: (context, child) {
-                return Transform.scale(
-                  scale: _animation.value,
-                  child: child,
-                );
+            SizedBox(width: 16),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'John Doe', // Replace with user's name
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Age: 30', // Replace with user's age
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
+          ],
+        ),
+        Card(
+          color: Color.fromARGB(242, 246, 249, 249),
+          elevation: 1.0,
+          shape: CircleBorder(),
+          child: Padding(
+            padding: const EdgeInsets.all(1),
+            child: IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Handle notification button pressed
               },
-              child: const Icon(
-                Icons.notifications,
-                size: 30,
-              ),
             ),
-            onPressed: () {
-              _controller.forward(from: 0.0); // Memulai animasi
-              // Aksi saat icon notifikasi ditekan
-            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
