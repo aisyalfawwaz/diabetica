@@ -1,5 +1,9 @@
 # Diabetica Health Management App
 
+<p align="center">
+  <img src="link_to_your_logo.png" alt="Diabetica Logo">
+</p>
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -12,7 +16,7 @@
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-## Introduction
+## Introduction 🌟
 
 Welcome to Diabetica, the AI-powered health revolution for the early detection and management of chronic diabetes. Diabetica aims to address the underdiagnosed diabetes cases in Indonesia by leveraging cutting-edge technology, non-invasive detection methods, and comprehensive management features.
 
@@ -22,7 +26,7 @@ Welcome to Diabetica, the AI-powered health revolution for the early detection a
 - **Objective:** Revolutionize diabetes management through AI-driven health solutions.
 - **Features:** Non-invasive detection, AI-driven classifications, and comprehensive health management.
 
-## Features
+## Features 🚀
 
 ### 1. Diabetic Risk Calculator
 - Evaluate diabetes risk and provide tailored preventive strategies.
@@ -33,7 +37,7 @@ Welcome to Diabetica, the AI-powered health revolution for the early detection a
 ### 3. Virtual Doctor Consultation
 - Facilitate personalized virtual consultations for individualized guidance based on the user's health conditions.
 
-## Technologies
+## Technologies 💻
 
 - **Frontend:** Flutter
 - **Backend:** Go
@@ -44,16 +48,16 @@ Welcome to Diabetica, the AI-powered health revolution for the early detection a
 - **Backend and User Management:** Google Firebase
 - **Collaboration Suite:** Google Collaboration Suite
 
-## Getting Started
+## Getting Started 🚀
 
 To get started with Diabetica, follow the instructions below.
 
-### Setting Up the Development Environment
+### Setting Up the Development Environment 🛠️
 
 1. Clone the repository: `git clone https://github.com/your-username/diabetica.git`
 2. Navigate to the project directory: `cd diabetica`
 
-### Building and Running
+### Building and Running 🏃‍♂️
 
 #### Frontend (Flutter)
 
@@ -70,15 +74,15 @@ cd backend
 go run main.go
 ```
 
-## Contributing
+## Contributing 🤝
 
 We welcome contributions to Diabetica! To contribute, please follow our [contribution guidelines](CONTRIBUTING.md).
 
-## License
+## License 📄
 
 This project is licensed under the [MIT License](LICENSE.md).
 
-## Acknowledgments
+## Acknowledgments 🙌
 
 - Special thanks to the IDF for providing valuable diabetes data.
 - Thanks to the open-source community for their continuous support and contributions.
