@@ -17,7 +17,7 @@ Welcome to Diabetica, the AI-powered health revolution for the early detection a
 
 ## Introduction 🌟
 
-Welcome to Diabetica, the AI-powered health revolution for the early detection and management of chronic diabetes. Diabetica aims to address the underdiagnosed diabetes cases in Indonesia by leveraging cutting-edge technology, non-invasive detection methods, and comprehensive management features.
+Welcome to Diabetica, the AI-powered health revolution for the early detection and management of chronic diabetes. Diabetica aims to address the underdiagnosed diabetes cases in the world by leveraging cutting-edge technology, non-invasive detection methods, and comprehensive management features.
 
 ### Project Overview
 
