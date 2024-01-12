@@ -109,15 +109,14 @@ Meet the passionate individuals behind Diabetica:
 
 Here are some screenshots from the Diabetica app:
 
-![Screenshot 1](https://ibb.co/yWZrfQS)
-![Screenshot 2](https://ibb.co/yWZrfQS)
-![Screenshot 3](https://ibb.co/7tMyzSf)
-![Screenshot 4](https://ibb.co/RTnDvpv)
-![Screenshot 5](https://ibb.co/dpsZPKR)
-![Screenshot 6](https://ibb.co/DzTTJKH)
-![Screenshot 7](https://ibb.co/gr5NWgm)
-![Screenshot 8](https://ibb.co/42WC0cj)
-![Screenshot 9](https://i.ibb.co/m623Dc8/User-Profile.png)
+![Screenshot 1](https://i.ibb.co/f0W0pdC/Login.png)
+![Screenshot 2](https://i.ibb.co/Qk9hxZ6/Register.png)
+![Screenshot 3](https://i.ibb.co/2FDxMKW/Homepage.png)
+![Screenshot 4](https://i.ibb.co/KbSSPyp/Glucose-History.png)
+![Screenshot 5](https://i.ibb.co/SmDStvz/Consultation.png)
+![Screenshot 6](https://i.ibb.co/ZzsML6L/Medicine-List.png)
+![Screenshot 7](https://i.ibb.co/609sZyM/Add-Medicine.png)
+![Screenshot 8]([https://ibb.co/42WC0cj](https://i.ibb.co/m623Dc8/User-Profile.png))
 
 Now, the images should appear directly in the README.
 
