@@ -34,7 +34,7 @@ class _DiabeticaCareListViewState extends State<DiabeticaCareListView> {
             .length, // Removed null check, as imageUrls is no longer nullable
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            width: MediaQuery.of(context).size.width * 0.42,
+            width: MediaQuery.of(context).size.width * 0.8,
             child: Card(
               elevation: 2.0,
               margin: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 16.0),

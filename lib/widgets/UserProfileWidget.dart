@@ -12,7 +12,9 @@ class UserProfileWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
                 radius: 30,
-                // Add user profile image here
+                backgroundImage: NetworkImage(
+                  'https://media.licdn.com/dms/image/D5603AQEa0JxS0W--zQ/profile-displayphoto-shrink_800_800/0/1690303844583?e=1710374400&v=beta&t=t8BSULhH6fQSYepG24lJxmca4ToWET6g4Z2RTeLZ_oA',
+                ),
               ),
             ),
             SizedBox(width: 16),
@@ -20,14 +22,14 @@ class UserProfileWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'John Doe', // Replace with user's name
+                  'Aisy Al Fawwaz', // Replace with user's name
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'Age: 30', // Replace with user's age
+                  '21 Years Old', // Replace with user's age
                   style: TextStyle(fontSize: 16),
                 ),
               ],
