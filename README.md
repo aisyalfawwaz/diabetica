@@ -109,9 +109,19 @@ Meet the passionate individuals behind Diabetica:
 
 Here are some screenshots from the Diabetica app:
 
-- [Screenshot 1](link_to_screenshot_1)
+- [Screenshot 1](https://ibb.co/yWZrfQS)
 - [Screenshot 2](link_to_screenshot_2)
 - [Screenshot 3](link_to_screenshot_3)
+- 
+https://ibb.co/yWZrfQS
+https://ibb.co/yWZrfQS
+https://ibb.co/7tMyzSf
+https://ibb.co/RTnDvpv
+https://ibb.co/dpsZPKR
+https://ibb.co/DzTTJKH
+https://ibb.co/gr5NWgm
+https://ibb.co/42WC0cj
+https://ibb.co/ThGh8MH
 
 ## Diabetica Health Monitoring Device 🌡️
 
