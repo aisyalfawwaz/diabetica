@@ -122,7 +122,7 @@ Here are some screenshots from the Diabetica app:
 
 Diabetica offers a state-of-the-art health monitoring device equipped with advanced sensors for seamless and non-invasive diabetes monitoring.
 
-[![Watch the Diabetica Health Monitoring Device in Action](https://img.youtube.com/vi/GUeo4YBv8PU/maxresdefault.jpg)](https://www.youtube.com/watch?v=GUeo4YBv8PU&ab_channel=Diabetica)
+![Watch the Diabetica Health Monitoring Device in Action](https://img.youtube.com/vi/GUeo4YBv8PU/maxresdefault.jpg)](https://www.youtube.com/watch?v=GUeo4YBv8PU&ab_channel=Diabetica)
 
 Click on the image above to watch the Diabetica Health Monitoring Device in action.
 
