@@ -1,6 +1,6 @@
-# Diabetica 🌟
+# Diabetica App 🌟
 
-Welcome to Diabetica, the AI-powered health revolution for the early detection and management of chronic diabetes. Diabetica aims to address the underdiagnosed diabetes cases in the World by leveraging cutting-edge technology, non-invasive detection methods, and comprehensive management features.
+Welcome to Diabetica, the AI-powered health revolution for the early detection and management of chronic diabetes. Diabetica aims to address the underdiagnosed diabetes cases in Indonesia by leveraging cutting-edge technology, non-invasive detection methods, and comprehensive management features.
 
 ## Table of Contents
 
@@ -13,6 +13,7 @@ Welcome to Diabetica, the AI-powered health revolution for the early detection a
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
+- [Team Members](#team-members)
 
 ## Introduction 🌟
 
@@ -86,6 +87,22 @@ flutter run
 cd diabetica-backend
 go run main.go
 ```
+
+## Team Members 👥
+
+Meet the passionate individuals behind Diabetica:
+
+- **Aisy Al Fawwaz**
+  - Role: Project Manager, Hacker
+
+- **Rafedo Dawamullah**
+  - Role: Hacker
+
+- **Fahira Firdausi**
+  - Role: Hipster
+
+- **Tazkia Ibnatiar**
+  - Role: Hustler
 
 ## Screenshots 📷
 
