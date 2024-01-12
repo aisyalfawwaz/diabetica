@@ -62,7 +62,7 @@ Welcome to Diabetica, the AI-powered health revolution for the early detection a
 - **Health Data Integration:** Google Fit API
 - **Backend and User Management:** Google Firebase
 - **Collaboration Suite:** Google Collaboration Suite
-- - **Embedded System/Diabetica Healthcare Devices:** Arduino IDE, SolidWork
+- **Embedded System/Diabetica Healthcare Devices:** Arduino IDE, SolidWork
 
 ## Getting Started 🚀
 
