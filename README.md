@@ -117,7 +117,7 @@ Here are some screenshots from the Diabetica app:
 ![Screenshot 6](https://ibb.co/DzTTJKH)
 ![Screenshot 7](https://ibb.co/gr5NWgm)
 ![Screenshot 8](https://ibb.co/42WC0cj)
-![Screenshot 9](https://ibb.co/ThGh8MH)
+![Screenshot 9](https://i.ibb.co/m623Dc8/User-Profile.png)
 
 Now, the images should appear directly in the README.
 
