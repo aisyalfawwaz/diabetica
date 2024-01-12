@@ -1,7 +1,4 @@
-Tentu, berikut adalah template README lengkap untuk proyek Diabetica Health Management App:
-
-```markdown
-# Diabetica Health Management App 🌟
+# Diabetica 🌟
 
 Welcome to Diabetica, the AI-powered health revolution for the early detection and management of chronic diabetes. Diabetica aims to address the underdiagnosed diabetes cases in Indonesia by leveraging cutting-edge technology, non-invasive detection methods, and comprehensive management features.
 
@@ -113,9 +110,4 @@ We welcome contributions to Diabetica! To contribute, please follow our [contrib
 This project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgments 🙌
-
-- Special thanks to the IDF for providing valuable diabetes data.
 - Thanks to the open-source community for their continuous support and contributions.
-```
-
-Pastikan untuk menggantikan placeholder dengan tautan video alat, dan tautan screenshot Anda sendiri. Juga, pastikan untuk menyimpan screenshot di suatu tempat yang dapat diakses secara online (misalnya, di penyimpanan awan) dan memberikan tautan yang valid pada bagian "Screenshots".
