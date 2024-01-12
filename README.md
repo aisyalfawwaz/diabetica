@@ -118,8 +118,6 @@ Here are some screenshots from the Diabetica app:
 ![Screenshot 7](https://i.ibb.co/609sZyM/Add-Medicine.png)
 ![Screenshot 8](https://i.ibb.co/m623Dc8/User-Profile.png)
 
-Now, the images should appear directly in the README.
-
 ## Diabetica Health Monitoring Device 🌡️
 
 Diabetica offers a state-of-the-art health monitoring device equipped with advanced sensors for seamless and non-invasive diabetes monitoring.
