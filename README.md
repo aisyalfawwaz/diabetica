@@ -67,7 +67,7 @@ flutter run
 #### Backend (Go)
 
 ```bash
-cd backend
+cd diabetica-backend
 go run main.go
 ```
 
