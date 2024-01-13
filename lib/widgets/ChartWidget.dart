@@ -11,9 +11,18 @@ class _ChatWidgetState extends State<ChatWidget> {
 
   void _sendMessage() {
     if (_messageController.text.isNotEmpty) {
-      FirestoreService().sendMessage(_messageController.text);
+      FirestoreService().sendMessageWithUserData(
+        _messageController.text,
+        'User Name', // Ganti dengan username user
+        'User Image URL', // Ganti dengan URL gambar profil user
+      );
       _messageController.clear();
     }
+  }
+
+  void _sendImage() {
+    // Tambahkan logika untuk mengirim gambar
+    // Anda dapat menggunakan plugin seperti image_picker untuk mengambil gambar
   }
 
   @override
@@ -28,10 +37,10 @@ class _ChatWidgetState extends State<ChatWidget> {
               borderRadius: BorderRadius.circular(12.0),
             ),
             padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-            child: StreamBuilder<List<String>>(
-              stream: FirestoreService().messagesStream,
-              builder:
-                  (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
+            child: StreamBuilder<List<Map<String, dynamic>>>(
+              stream: FirestoreService().messagesStreamWithUserData,
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
                 if (!snapshot.hasData) {
                   return Center(
                     child: CircularProgressIndicator(),
@@ -41,10 +50,34 @@ class _ChatWidgetState extends State<ChatWidget> {
                 final messages = snapshot.data!;
                 List<Widget> messageWidgets = messages
                     .map((message) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: Text(
-                            message,
-                            style: TextStyle(fontSize: 16.0),
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ListTile(
+                                leading: CircleAvatar(
+                                  backgroundImage:
+                                      NetworkImage(message['userImageUrl']),
+                                ),
+                                title: Text(
+                                  message['userName'],
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  message['message'],
+                                  style: TextStyle(fontSize: 16.0),
+                                ),
+                                trailing: Text(
+                                  message['timestamp'],
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                              Divider(
+                                color: Colors.grey,
+                              ),
+                            ],
                           ),
                         ))
                     .toList();
@@ -76,6 +109,10 @@ class _ChatWidgetState extends State<ChatWidget> {
                 ),
               ),
               SizedBox(width: 8.0),
+              IconButton(
+                icon: Icon(Icons.photo),
+                onPressed: _sendImage,
+              ),
               Material(
                 color: Colors.blue,
                 borderRadius: BorderRadius.circular(30.0),

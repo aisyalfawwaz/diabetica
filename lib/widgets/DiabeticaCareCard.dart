@@ -1,10 +1,11 @@
+import 'package:diabetica/widgets/StatusDetectionContent.dart';
 import 'package:flutter/material.dart';
 import 'package:diabetica/widgets/WeeklyGlucoseBarChart.dart';
 import 'package:diabetica/widgets/MonthlyGlucoseBarChart.dart';
 import 'package:diabetica/widgets/YearlyGlucoseBarChart.dart';
 import 'package:diabetica/models/DataPoint.dart';
 
-class DiabeticaCareCard extends StatelessWidget {
+class DiabeticaCareCard extends StatefulWidget {
   final int currentIndex;
   final ValueChanged<int> onTabChanged;
   final List<DataPoint> glucoseData;
@@ -15,6 +16,11 @@ class DiabeticaCareCard extends StatelessWidget {
     required this.glucoseData,
   });
 
+  @override
+  _DiabeticaCareCardState createState() => _DiabeticaCareCardState();
+}
+
+class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -27,8 +33,42 @@ class DiabeticaCareCard extends StatelessWidget {
         children: [
           _buildSectionTitle('Diabetica Care', Icons.medical_information),
           _buildTabBar(),
-          if (currentIndex == 0) _buildAIDetectionContent(),
-          if (currentIndex == 1) _buildRecommendationDetectionContent(),
+          if (widget.currentIndex == 0) _buildAIDetectionContent(),
+          if (widget.currentIndex == 1) _buildRecommendationDetectionContent(),
+          if (widget.currentIndex == 2)
+            StatusDetectionContent(
+              statusFeatures: [
+                StatusFeature(
+                  name: "Diabetes",
+                  unit: "mg/dL",
+                  icon: Icons.favorite,
+                  cardColor: Colors.red,
+                  value: "120",
+                ),
+                StatusFeature(
+                  name: "Blood Pressure",
+                  unit: "mmHg",
+                  icon: Icons.waves,
+                  cardColor: Colors.blue,
+                  value: "120/80",
+                ),
+                StatusFeature(
+                  name: "Cholesterol",
+                  unit: "mg/dL",
+                  icon: Icons.opacity,
+                  cardColor: Colors.green,
+                  value: "150",
+                ),
+                StatusFeature(
+                  name: "BMI",
+                  unit: "",
+                  icon: Icons.accessibility,
+                  cardColor: Colors.orange,
+                  value: "22.5",
+                ),
+                // Add more StatusFeature instances as needed
+              ],
+            ),
         ],
       ),
     );
@@ -62,6 +102,7 @@ class DiabeticaCareCard extends StatelessWidget {
         children: [
           _buildTabItem('AI Detection', 0),
           _buildTabItem('Recommendation', 1),
+          _buildTabItem('Status', 2),
         ],
       ),
     );
@@ -70,18 +111,19 @@ class DiabeticaCareCard extends StatelessWidget {
   Widget _buildTabItem(String text, int index) {
     return GestureDetector(
       onTap: () {
-        onTabChanged(index);
+        widget.onTabChanged(index);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: currentIndex == index ? Colors.blue : Colors.transparent,
+          color:
+              widget.currentIndex == index ? Colors.blue : Colors.transparent,
         ),
         child: Text(
           text,
           style: TextStyle(
-            color: currentIndex == index ? Colors.white : Colors.black,
+            color: widget.currentIndex == index ? Colors.white : Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -112,24 +154,57 @@ class DiabeticaCareCard extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          _buildAIFeatureItem(
+          _buildRecommendationFeatureItem(
             'Food & Nutrition',
             'Rekomendasi Gizi',
             Icons.restaurant,
             Color.fromARGB(255, 110, 222, 253),
           ),
-          _buildAIFeatureItem(
+          _buildRecommendationFeatureItem(
             'Exercise',
             'Olahraga sesuai',
             Icons.directions_run,
             Color.fromARGB(255, 204, 177, 41),
           ),
-          _buildAIFeatureItem(
+          _buildRecommendationFeatureItem(
             'Other Therapy',
             'Terapi Lain',
             Icons.healing,
             Color.fromARGB(255, 41, 110, 204),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatusDetectionContent() {
+    return Container(
+      height: 200,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          _buildStatusFeatureItem(
+            'Heart Rate',
+            'BPM',
+            Icons.favorite,
+            Color.fromARGB(255, 41, 110, 204),
+            '78', // Replace with actual heart rate value
+          ),
+          _buildStatusFeatureItem(
+            'Diabetes Risk',
+            '%',
+            Icons.calculate,
+            Color.fromARGB(255, 110, 222, 253),
+            '35', // Replace with actual diabetes risk value
+          ),
+          _buildStatusFeatureItem(
+            'Exercise',
+            'Steps',
+            Icons.directions_run,
+            Color.fromARGB(255, 253, 182, 110),
+            '12000', // Replace with actual step count
+          ),
+          // Add more status features as needed
         ],
       ),
     );
@@ -177,6 +252,129 @@ class DiabeticaCareCard extends StatelessWidget {
                 description,
                 style: TextStyle(
                   fontSize: 13,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRecommendationFeatureItem(
+      String feature, String description, IconData icon, Color cardColor) {
+    return Container(
+      width: 150,
+      margin: EdgeInsets.all(8.0),
+      child: Card(
+        color: cardColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        elevation: 2.0,
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment:
+                CrossAxisAlignment.start, // Meletakkan konten ke kiri
+            children: [
+              Row(
+                mainAxisAlignment:
+                    MainAxisAlignment.start, // Meletakkan ikon ke kiri
+                children: [
+                  Icon(
+                    icon,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(height: 60),
+              Text(
+                feature,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 4),
+              Text(
+                description,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStatusFeatureItem(String feature, String unit, IconData icon,
+      Color cardColor, String value) {
+    return Container(
+      width: 150,
+      margin: EdgeInsets.all(8.0),
+      child: Card(
+        color: cardColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        elevation: 2.0,
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              AnimatedContainer(
+                duration: Duration(milliseconds: 500),
+                height: 60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RotationTransition(
+                      turns: AlwaysStoppedAnimation(45 / 360),
+                      child: Icon(
+                        icon,
+                        size: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                feature,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 4),
+              AnimatedDefaultTextStyle(
+                duration: Duration(milliseconds: 500),
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+                child: Text(
+                  value,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 4),
+              Text(
+                unit,
+                style: TextStyle(
+                  fontSize: 12,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,

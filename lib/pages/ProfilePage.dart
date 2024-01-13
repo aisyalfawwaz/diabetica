@@ -5,12 +5,14 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profil Saya'),
-      ),
       body: Padding(
         padding: EdgeInsets.all(20.0),
-        child: ProfileWidget(),
+        child: Column(
+          children: [
+            SizedBox(height: 20),
+            ProfileWidget(),
+          ],
+        ),
       ),
     );
   }

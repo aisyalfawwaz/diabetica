@@ -50,6 +50,7 @@ dependencies:
   cloud_firestore: ^4.4.0
   moor_flutter: ^4.1.0
   dio: ^4.0.0
+  shimmer: ^2.0.0
   
 
 
