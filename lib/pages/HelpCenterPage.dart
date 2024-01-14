@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class HelpCenterPage extends StatelessWidget {
+  const HelpCenterPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help Center'),
+        title: const Text('Help Center'),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -80,7 +82,7 @@ class FAQItem extends StatelessWidget {
   final String answer;
   final IconData icon;
 
-  FAQItem({
+  const FAQItem({super.key, 
     required this.question,
     required this.answer,
     required this.icon,
@@ -92,14 +94,14 @@ class FAQItem extends StatelessWidget {
       title: ListTile(
         title: Text(
           question,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         leading: Icon(icon),
       ),
       children: [
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Text(answer, style: TextStyle(fontSize: 16)),
+          child: Text(answer, style: const TextStyle(fontSize: 16)),
         ),
       ],
     );

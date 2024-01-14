@@ -17,7 +17,7 @@ class _MedicineListWidgetState extends State<MedicineListWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: widget.medicines.isEmpty
-          ? Center(
+          ? const Center(
               child: Text('No schedule data'),
             )
           : ListView.builder(
@@ -30,8 +30,8 @@ class _MedicineListWidgetState extends State<MedicineListWidget> {
                   background: Container(
                     color: Colors.red,
                     alignment: Alignment.centerRight,
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Icon(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: const Icon(
                       Icons.delete,
                       color: Colors.white,
                     ),
@@ -47,7 +47,7 @@ class _MedicineListWidgetState extends State<MedicineListWidget> {
                     subtitle: Text('${medicine.type} - ${medicine.dosage}'),
                     leading: _getMedicineIcon(medicine.type),
                     trailing: IconButton(
-                      icon: Icon(Icons.delete),
+                      icon: const Icon(Icons.delete),
                       onPressed: () {
                         // Add logic to delete medicine
                       },
@@ -60,11 +60,11 @@ class _MedicineListWidgetState extends State<MedicineListWidget> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddMedicinePage()),
+            MaterialPageRoute(builder: (context) => const AddMedicinePage()),
           );
         },
-        child: Icon(Icons.add),
         backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
     );
   }

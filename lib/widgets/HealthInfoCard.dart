@@ -4,7 +4,7 @@ class HealthInfoCard extends StatelessWidget {
   final String title;
   final String value;
 
-  HealthInfoCard({required this.title, required this.value});
+  const HealthInfoCard({super.key, required this.title, required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +32,10 @@ class HealthInfoCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.0),
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [Colors.blueAccent, Colors.lightBlueAccent],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -45,14 +45,14 @@ class HealthInfoCard extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 5,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
           child: ListTile(
             title: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -62,12 +62,12 @@ class HealthInfoCard extends StatelessWidget {
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Stack(
                   alignment: Alignment.centerLeft,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 24),
+                      padding: const EdgeInsets.only(left: 24),
                       child: Text(
                         value,
                         style: TextStyle(

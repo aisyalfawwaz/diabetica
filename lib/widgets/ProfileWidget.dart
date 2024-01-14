@@ -10,20 +10,20 @@ class ProfileWidget extends StatelessWidget {
     return SingleChildScrollView(
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 1000),
+          constraints: const BoxConstraints(maxWidth: 1000),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
-                backgroundColor: const Color.fromARGB(255, 21, 141, 240),
+              const CircleAvatar(
+                backgroundColor: Color.fromARGB(255, 21, 141, 240),
                 radius: 50,
                 backgroundImage: NetworkImage(
                   'https://media.licdn.com/dms/image/D5603AQEa0JxS0W--zQ/profile-displayphoto-shrink_800_800/0/1690303844583?e=1710374400&v=beta&t=t8BSULhH6fQSYepG24lJxmca4ToWET6g4Z2RTeLZ_oA',
                 ),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Aisy Al Fawwaz',
                 style: TextStyle(
                   fontSize: 28,
@@ -32,8 +32,8 @@ class ProfileWidget extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 '21 Tahun',
                 style: TextStyle(
                   fontSize: 18,
@@ -41,7 +41,7 @@ class ProfileWidget extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               // Menu Card Widgets
               buildMenuCard('User Details', Icons.person, Colors.blue, () {
                 // Handle menu item tap
@@ -52,14 +52,14 @@ class ProfileWidget extends StatelessWidget {
               buildMenuCard('Privacy', Icons.lock, Colors.green, () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PrivacyPage()),
+                  MaterialPageRoute(builder: (context) => const PrivacyPage()),
                 ); // Handle menu item tap
               }),
               buildMenuCard('Help Center', Icons.help, Colors.purple, () {
                 // Navigasi ke halaman Help Center
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HelpCenterPage()),
+                  MaterialPageRoute(builder: (context) => const HelpCenterPage()),
                 );
               }),
               buildMenuCard('Sign Out', Icons.exit_to_app, Colors.red, () {
@@ -75,7 +75,7 @@ class ProfileWidget extends StatelessWidget {
   Widget buildMenuCard(
       String title, IconData icon, Color cardColor, VoidCallback onTap) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       color: cardColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -83,7 +83,7 @@ class ProfileWidget extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
@@ -92,7 +92,7 @@ class ProfileWidget extends StatelessWidget {
           icon,
           color: Colors.white,
         ),
-        trailing: Icon(
+        trailing: const Icon(
           Icons.arrow_forward_ios,
           color: Colors.white,
         ),

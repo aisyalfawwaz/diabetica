@@ -6,26 +6,26 @@ import 'package:intl/intl.dart';
 class MonthlyGlucoseBarChart extends StatelessWidget {
   final List<DataPoint> glucoseData;
 
-  const MonthlyGlucoseBarChart({required this.glucoseData});
+  const MonthlyGlucoseBarChart({super.key, required this.glucoseData});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(16.0),
       elevation: 2.0,
       color: Colors.white.withOpacity(0.7), // Adjust transparency here
       child: Container(
         height: 300,
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: SfCartesianChart(
           plotAreaBorderColor: Colors.transparent,
           primaryXAxis: CategoryAxis(), // Using CategoryAxis for months
           primaryYAxis: NumericAxis(
-            majorGridLines: MajorGridLines(width: 0),
-            axisLine: AxisLine(width: 0),
+            majorGridLines: const MajorGridLines(width: 0),
+            axisLine: const AxisLine(width: 0),
             labelFormat: '{value} mg/dL',
             interval: 70,
-            labelStyle: TextStyle(fontSize: 10), // Adjust font size here
+            labelStyle: const TextStyle(fontSize: 10), // Adjust font size here
           ),
           series: <ChartSeries>[
             // Using BarSeries to display glucose data as bars

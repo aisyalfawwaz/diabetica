@@ -2,6 +2,8 @@ import 'package:diabetica/services/FirestoreServices.dart';
 import 'package:flutter/material.dart';
 
 class ChatWidget extends StatefulWidget {
+  const ChatWidget({super.key});
+
   @override
   _ChatWidgetState createState() => _ChatWidgetState();
 }
@@ -31,18 +33,18 @@ class _ChatWidgetState extends State<ChatWidget> {
       children: [
         Expanded(
           child: Container(
-            margin: EdgeInsets.all(16.0),
+            margin: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(12.0),
             ),
-            padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
             child: StreamBuilder<List<Map<String, dynamic>>>(
               stream: FirestoreService().messagesStreamWithUserData,
               builder: (BuildContext context,
                   AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
                 if (!snapshot.hasData) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
@@ -61,20 +63,20 @@ class _ChatWidgetState extends State<ChatWidget> {
                                 ),
                                 title: Text(
                                   message['userName'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 subtitle: Text(
                                   message['message'],
-                                  style: TextStyle(fontSize: 16.0),
+                                  style: const TextStyle(fontSize: 16.0),
                                 ),
                                 trailing: Text(
                                   message['timestamp'],
-                                  style: TextStyle(color: Colors.grey),
+                                  style: const TextStyle(color: Colors.grey),
                                 ),
                               ),
-                              Divider(
+                              const Divider(
                                 color: Colors.grey,
                               ),
                             ],
@@ -108,16 +110,16 @@ class _ChatWidgetState extends State<ChatWidget> {
                   ),
                 ),
               ),
-              SizedBox(width: 8.0),
+              const SizedBox(width: 8.0),
               IconButton(
-                icon: Icon(Icons.photo),
+                icon: const Icon(Icons.photo),
                 onPressed: _sendImage,
               ),
               Material(
                 color: Colors.blue,
                 borderRadius: BorderRadius.circular(30.0),
                 child: IconButton(
-                  icon: Icon(Icons.send),
+                  icon: const Icon(Icons.send),
                   color: Colors.white,
                   onPressed: _sendMessage,
                 ),

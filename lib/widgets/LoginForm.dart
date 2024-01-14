@@ -3,6 +3,8 @@ import 'package:diabetica/widgets/CustomBottomDart.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
+  const LoginForm({Key? key}) : super(key: key);
+
   @override
   _LoginFormState createState() => _LoginFormState();
 }
@@ -29,8 +31,8 @@ class _LoginFormState extends State<LoginForm> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) =>
-              CustomBottomBar()), // Ganti RegisterPage() dengan halaman register yang sesuai
+        builder: (context) => const CustomBottomBar(),
+      ),
     );
   }
 
@@ -63,7 +65,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 filled: true,
                 fillColor: Colors.white,
-                prefixIcon: const Icon(Icons.email),
+                prefixIcon: const Icon(Icons.email, color: Colors.blue),
               ),
               validator: (value) {
                 if (value!.isEmpty) {
@@ -88,7 +90,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 filled: true,
                 fillColor: Colors.white,
-                prefixIcon: const Icon(Icons.lock),
+                prefixIcon: const Icon(Icons.lock, color: Colors.blue),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _isObscure ? Icons.visibility_off : Icons.visibility,
@@ -105,7 +107,6 @@ class _LoginFormState extends State<LoginForm> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => signinsementara(context),
-              child: const Text('Login'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.blue,
                 onPrimary: Colors.white,
@@ -114,17 +115,17 @@ class _LoginFormState extends State<LoginForm> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
               ),
+              child: const Text('Login'),
             ),
             const SizedBox(height: 10),
             TextButton(
               onPressed: () => register(context),
-              child: const Text('Belum memiliki akun? Register sekarang'),
+              child: const Text('Don\'t have an account? Register now'),
             ),
             const SizedBox(height: 10),
             OutlinedButton(
               onPressed: () => signInWithGoogle(context),
               style: OutlinedButton.styleFrom(
-                primary: Colors.blue,
                 side: const BorderSide(color: Colors.blue),
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
@@ -133,10 +134,11 @@ class _LoginFormState extends State<LoginForm> {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.g_mobiledata_outlined, color: Colors.blue),
-                  SizedBox(width: 10),
-                  Text('Login dengan Google'),
+                  const SizedBox(width: 10),
+                  Text('Login with Google',
+                      style: TextStyle(color: Colors.blue)),
                 ],
               ),
             ),

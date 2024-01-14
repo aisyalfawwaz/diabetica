@@ -15,7 +15,7 @@ class StatusDetectionContent extends StatefulWidget {
 class _StatusDetectionContentState extends State<StatusDetectionContent> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -30,7 +30,7 @@ class _StatusDetectionContentState extends State<StatusDetectionContent> {
   Widget _buildStatusFeatureItem(StatusFeature feature) {
     return Container(
       width: 150,
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Card(
         color: feature.cardColor,
         shape: RoundedRectangleBorder(
@@ -38,14 +38,14 @@ class _StatusDetectionContentState extends State<StatusDetectionContent> {
         ),
         elevation: 2.0,
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 width: 56,
                 height: 56,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
                 ),
@@ -66,19 +66,19 @@ class _StatusDetectionContentState extends State<StatusDetectionContent> {
                   ),
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 feature.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 1),
+              const SizedBox(height: 1),
               AnimatedDefaultTextStyle(
-                duration: Duration(milliseconds: 500),
-                style: TextStyle(
+                duration: const Duration(milliseconds: 500),
+                style: const TextStyle(
                   fontSize: 26,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -88,10 +88,10 @@ class _StatusDetectionContentState extends State<StatusDetectionContent> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 1),
+              const SizedBox(height: 1),
               Text(
                 feature.unit,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: Colors.white,
                 ),

@@ -4,6 +4,8 @@ import 'package:diabetica/services/NewsServices.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
 class HorizontalListView extends StatefulWidget {
+  const HorizontalListView({super.key});
+
   @override
   _HorizontalListViewState createState() => _HorizontalListViewState();
 }
@@ -32,11 +34,11 @@ class _HorizontalListViewState extends State<HorizontalListView> {
       future: _newsData,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Center(child: Text('No data available'));
+          return const Center(child: Text('No data available'));
         } else {
           return Column(
             children: [
@@ -68,7 +70,7 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                         },
                         child: Card(
                           margin:
-                              EdgeInsets.symmetric(horizontal: 8, vertical: 18),
+                              const EdgeInsets.symmetric(horizontal: 8, vertical: 18),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
@@ -77,7 +79,7 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.vertical(
+                                borderRadius: const BorderRadius.vertical(
                                   top: Radius.circular(16),
                                 ),
                                 child: AspectRatio(
@@ -113,7 +115,7 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                     ? 5 // Jumlah titik maksimal 5
                     : snapshot.data!.length,
                 position: _currentIndex.toDouble(),
-                decorator: DotsDecorator(
+                decorator: const DotsDecorator(
                   color: Colors.grey, // Warna titik tidak aktif
                   activeColor: Colors.blue, // Warna titik aktif
                 ),

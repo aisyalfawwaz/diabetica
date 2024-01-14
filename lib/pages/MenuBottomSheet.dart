@@ -8,13 +8,15 @@ class MenuBottomSheet extends StatelessWidget {
     // Add more menu items as needed
   ];
 
+  MenuBottomSheet({Key? key}) : super(key: key);
+
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
         return Container(
-          padding: EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.all(16.0),
+          decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
@@ -27,7 +29,7 @@ class MenuBottomSheet extends StatelessWidget {
             itemBuilder: (context, index) {
               return Card(
                 elevation: 2.0,
-                margin: EdgeInsets.symmetric(vertical: 8.0),
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
                 child: ListTile(
                   leading: Icon(
                     menuList[index].icon,
@@ -35,7 +37,7 @@ class MenuBottomSheet extends StatelessWidget {
                   ),
                   title: Text(
                     menuList[index].name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
@@ -58,13 +60,13 @@ class MenuBottomSheet extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => _showBottomSheet(context),
       style: ElevatedButton.styleFrom(
-        primary: Colors.deepPurple,
+        backgroundColor: Colors.deepPurple,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
+      child: const Padding(
+        padding: EdgeInsets.all(12.0),
         child: Text(
           'Show Bottom Sheet',
           style: TextStyle(fontSize: 18),

@@ -3,24 +3,26 @@ import 'package:diabetica/widgets/DiabeticaCareListView.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DiabeticRiskCalculatorCard(
+              const DiabeticRiskCalculatorCard(
                 icon: Icons.dangerous,
                 riskValue: 70,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Icon(
                         Icons.favorite,
@@ -42,12 +44,12 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       // Action to view all
                     },
-                    child: Text('View All'),
+                    child: const Text('View All'),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              DiabeticaCareListView(),
+              const SizedBox(height: 10),
+              const DiabeticaCareListView(),
             ],
           ),
         ),

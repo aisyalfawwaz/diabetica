@@ -17,7 +17,7 @@ class AuthService {
       if (userCredential.user != null) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => CustomBottomBar()),
+          MaterialPageRoute(builder: (context) => const CustomBottomBar()),
         );
       }
     } on FirebaseAuthException catch (e) {
@@ -32,7 +32,7 @@ class AuthService {
   void register(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => RegisterPage()),
+      MaterialPageRoute(builder: (context) => const RegisterPage()),
     );
   }
 
@@ -55,7 +55,7 @@ class AuthService {
         if (userCredential.user != null) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => CustomBottomBar()),
+            MaterialPageRoute(builder: (context) => const CustomBottomBar()),
           );
         }
       }

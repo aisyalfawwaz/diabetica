@@ -2,6 +2,8 @@ import 'package:diabetica/widgets/DataFetchingWidget.dart';
 import 'package:flutter/material.dart';
 
 class DataFetchingPage extends StatefulWidget {
+  const DataFetchingPage({super.key});
+
   @override
   _DataFetchingPageState createState() => _DataFetchingPageState();
 }
@@ -18,7 +20,7 @@ class _DataFetchingPageState extends State<DataFetchingPage> {
     // Misalnya, panggil method atau fungsi untuk fetching data di sini
 
     // Contoh delay fetching selama 3 detik
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
     setState(() {
       _isFetching = false;
@@ -29,7 +31,7 @@ class _DataFetchingPageState extends State<DataFetchingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Data Fetching Page'),
+        title: const Text('Data Fetching Page'),
       ),
       body: DataFetchingWidget(
         isFetching: _isFetching,

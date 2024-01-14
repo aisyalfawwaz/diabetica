@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:diabetica/models/dummydata.dart';
 
 class MedicineListPage extends StatefulWidget {
+  const MedicineListPage({super.key});
+
   @override
   _MedicineListPageState createState() => _MedicineListPageState();
 }
@@ -15,7 +17,7 @@ class _MedicineListPageState extends State<MedicineListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Medicine List'),
+        title: const Text('Medicine List'),
       ),
       body: MedicineListWidget(medicines: medicines),
       // other properties...

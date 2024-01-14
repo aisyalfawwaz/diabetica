@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:diabetica/widgets/UserProfileWidget.dart';
 import 'package:diabetica/widgets/EmoticonButton.dart';
 import 'package:diabetica/widgets/DiabeticRiskCard.dart';
-import 'package:diabetica/widgets/WeeklyGlucoseBarChart.dart';
-import 'package:diabetica/widgets/MonthlyGlucoseBarChart.dart';
-import 'package:diabetica/widgets/YearlyGlucoseBarChart.dart';
 import 'package:diabetica/models/DataPoint.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -30,22 +29,22 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  SizedBox(height: 30),
-                  UserProfileWidget(),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 30),
+                  const UserProfileWidget(),
+                  const SizedBox(height: 20),
+                  const Text(
                     'How do you exercise today?',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Row(
+                  const SizedBox(height: 10),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       EmoticonButton(
@@ -59,8 +58,8 @@ class _HomePageState extends State<HomePage> {
                           iconColor: Colors.red),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  DiabeticRiskCard(),
+                  const SizedBox(height: 10),
+                  const DiabeticRiskCard(),
                   DiabeticaCareCard(
                     currentIndex: _currentIndex,
                     onTabChanged: (index) {
@@ -71,14 +70,14 @@ class _HomePageState extends State<HomePage> {
                     glucoseData: glucoseData,
                   ),
                   const SizedBox(height: 10),
-                  Text(
+                  const Text(
                     'How to boost your health ?',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  DiabeticaCareListView()
+                  const DiabeticaCareListView()
                 ],
               ),
             ),

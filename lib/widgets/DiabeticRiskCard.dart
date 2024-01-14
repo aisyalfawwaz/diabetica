@@ -1,18 +1,23 @@
+import 'package:diabetica/pages/DataFetchingPage.dart';
+import 'package:diabetica/pages/DataFetchingScreen.dart';
+import 'package:diabetica/pages/DiabeticaBLE.dart';
 import 'package:flutter/material.dart';
 
 class DiabeticRiskCard extends StatelessWidget {
+  const DiabeticRiskCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Card(
-          color: Color.fromRGBO(22, 25, 27, 1),
+          color: const Color.fromRGBO(22, 25, 27, 1),
           elevation: 2.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -21,7 +26,7 @@ class DiabeticRiskCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Get to Know Your Diabetic Risk Level',
                         style: TextStyle(
                           color: Colors.white,
@@ -29,23 +34,29 @@ class DiabeticRiskCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         'Non-Invasive and Fastly',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: () {
                           // Handle "Get Started" button pressed
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const DataFetchingScreen()),
+                          );
                         },
-                        child: Text('Get Started'),
+                        child: const Text('Get Started'),
                       ),
                     ],
                   ),
                 ),
                 // Container untuk menampung gambar dan menyesuaikan tingginya
-                Container(
+                SizedBox(
                   height: 130,
                   width: 100, // Sesuaikan lebar gambar sesuai kebutuhan
                   child: Image.network(
@@ -57,7 +68,7 @@ class DiabeticRiskCard extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 20), // Adjust the spacing as needed
+        const SizedBox(height: 20), // Adjust the spacing as needed
       ],
     );
   }

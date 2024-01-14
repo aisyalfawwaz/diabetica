@@ -4,7 +4,7 @@ class GlucoseInfoCard extends StatelessWidget {
   final String title;
   final String value;
 
-  const GlucoseInfoCard({
+  const GlucoseInfoCard({super.key, 
     required this.title,
     required this.value,
   });
@@ -34,9 +34,9 @@ class GlucoseInfoCard extends StatelessWidget {
     }
 
     return AnimatedContainer(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
-      margin: EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
@@ -45,12 +45,12 @@ class GlucoseInfoCard extends StatelessWidget {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 4,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -61,27 +61,27 @@ class GlucoseInfoCard extends StatelessWidget {
                   size: 24,
                   color: Colors.blue, // Change icon color as needed
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
                       value,
-                      style: TextStyle(fontSize: 14),
+                      style: const TextStyle(fontSize: 14),
                     ),
                   ],
                 ),
               ],
             ),
-            Icon(Icons.arrow_forward_ios), // Optional: Add navigation arrow
+            const Icon(Icons.arrow_forward_ios), // Optional: Add navigation arrow
           ],
         ),
       ),

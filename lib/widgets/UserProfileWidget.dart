@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
 
 class UserProfileWidget extends StatelessWidget {
+  const UserProfileWidget({Key? key});
+
   @override
   Widget build(BuildContext context) {
+    int notificationCount =
+        9; // Gantilah dengan jumlah notifikasi yang sebenarnya
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
+        const Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: CircleAvatar(
                 radius: 30,
                 backgroundImage: NetworkImage(
@@ -22,32 +28,31 @@ class UserProfileWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Aisy Al Fawwaz', // Replace with user's name
+                  'Aisy Al Fawwaz', // Ganti dengan nama pengguna
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  '21 Years Old', // Replace with user's age
+                  '21 Years Old', // Ganti dengan usia pengguna
                   style: TextStyle(fontSize: 16),
                 ),
               ],
             ),
           ],
         ),
-        Card(
-          color: Color.fromARGB(242, 246, 249, 249),
-          elevation: 1.0,
-          shape: CircleBorder(),
-          child: Padding(
-            padding: const EdgeInsets.all(1),
-            child: IconButton(
-              icon: Icon(Icons.notifications),
-              onPressed: () {
-                // Handle notification button pressed
-              },
-            ),
+        badges.Badge(
+          position: badges.BadgePosition.topEnd(top: -5, end: -1),
+          badgeContent: Text(
+            notificationCount.toString(),
+            style: TextStyle(color: Colors.white),
+          ),
+          child: IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              // Handle notification button pressed
+            },
           ),
         ),
       ],

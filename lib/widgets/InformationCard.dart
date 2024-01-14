@@ -6,7 +6,7 @@ class InformationCard extends StatefulWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  const InformationCard({
+  const InformationCard({super.key, 
     required this.title,
     required this.description,
     required this.icon,
@@ -34,7 +34,7 @@ class _InformationCardState extends State<InformationCard> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.0),
@@ -44,7 +44,7 @@ class _InformationCardState extends State<InformationCard> {
                     color: const Color.fromARGB(255, 232, 227, 227)
                         .withOpacity(0.1),
                     blurRadius: 20,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ]
               : null,
@@ -57,7 +57,7 @@ class _InformationCardState extends State<InformationCard> {
           child: InkWell(
             onTap: widget.onTap,
             child: Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -66,12 +66,12 @@ class _InformationCardState extends State<InformationCard> {
                     size: 36,
                     color: _isHovered ? Colors.blue : Colors.black,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     widget.title,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(widget.description),
                 ],
               ),

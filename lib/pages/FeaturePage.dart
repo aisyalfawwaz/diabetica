@@ -2,6 +2,8 @@ import 'package:diabetica/widgets/FeatureCard.dart';
 import 'package:flutter/material.dart';
 
 class FeaturePage extends StatelessWidget {
+  const FeaturePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Menggunakan MediaQuery untuk mendapatkan lebar layar
@@ -20,7 +22,7 @@ class FeaturePage extends StatelessWidget {
           crossAxisCount: crossAxisCount,
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
-          children: [
+          children: const [
             FeatureCard(
               backgroundColor: Colors.blue,
               icon: Icons.restaurant,

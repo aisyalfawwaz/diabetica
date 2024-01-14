@@ -4,7 +4,7 @@ class DataFetchingWidget extends StatefulWidget {
   final bool isFetching;
   final VoidCallback onPressed;
 
-  DataFetchingWidget({required this.isFetching, required this.onPressed});
+  const DataFetchingWidget({super.key, required this.isFetching, required this.onPressed});
 
   @override
   _DataFetchingWidgetState createState() => _DataFetchingWidgetState();
@@ -20,8 +20,8 @@ class _DataFetchingWidgetState extends State<DataFetchingWidget>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
-      reverseDuration: Duration(seconds: 1),
+      duration: const Duration(seconds: 2),
+      reverseDuration: const Duration(seconds: 1),
     )..repeat(reverse: true);
   }
 
@@ -54,7 +54,7 @@ class _DataFetchingWidgetState extends State<DataFetchingWidget>
               });
             },
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 150),
+              duration: const Duration(milliseconds: 150),
               width: _isButtonPressed ? 150 : 120,
               height: _isButtonPressed ? 150 : 120,
               decoration: BoxDecoration(
@@ -66,7 +66,7 @@ class _DataFetchingWidgetState extends State<DataFetchingWidget>
                           color: Colors.black.withOpacity(0.3),
                           spreadRadius: 3,
                           blurRadius: 10,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ]
                     : null,
@@ -75,13 +75,13 @@ class _DataFetchingWidgetState extends State<DataFetchingWidget>
                 child: _isButtonPressed
                     ? RotationTransition(
                         turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-                        child: Icon(
+                        child: const Icon(
                           Icons.refresh,
                           color: Colors.white,
                           size: 40,
                         ),
                       )
-                    : Text(
+                    : const Text(
                         'Fetch Data',
                         style: TextStyle(color: Colors.white),
                       ),
@@ -89,11 +89,11 @@ class _DataFetchingWidgetState extends State<DataFetchingWidget>
             ),
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           if (widget.isFetching)
-            CircularProgressIndicator() // Animasi fetching data
+            const CircularProgressIndicator() // Animasi fetching data
           else
-            SizedBox.shrink(), // Jika tidak fetching, tampilkan widget kosong
+            const SizedBox.shrink(), // Jika tidak fetching, tampilkan widget kosong
         ],
       ),
     );

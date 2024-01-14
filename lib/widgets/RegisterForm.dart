@@ -7,6 +7,8 @@ class RegisterForm extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
 
+  RegisterForm({super.key});
+
   Future<void> register(BuildContext context) async {
     try {
       UserCredential userCredential =
@@ -38,65 +40,65 @@ class RegisterForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           FormBuilderTextField(
             name: 'name',
             controller: nameController,
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Nama',
               border: OutlineInputBorder(),
               prefixIcon: Icon(Icons.person),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           FormBuilderTextField(
             name: 'email',
             controller: emailController,
             keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Email',
               border: OutlineInputBorder(),
               prefixIcon: Icon(Icons.email),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           FormBuilderTextField(
             name: 'password',
             controller: passwordController,
             obscureText: true,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Password',
               border: OutlineInputBorder(),
               prefixIcon: Icon(Icons.lock),
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () => register(context),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 'Register',
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.blue,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
           ),
-          SizedBox(height: 10), // Tambahkan ruang kosong vertikal
+          const SizedBox(height: 10), // Tambahkan ruang kosong vertikal
           TextButton(
             onPressed: () => goToLoginPage(context),
-            child: Text(
+            child: const Text(
               'Sudah memiliki akun? Silahkan login sekarang',
               style: TextStyle(color: Colors.blue),
             ),

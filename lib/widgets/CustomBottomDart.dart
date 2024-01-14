@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class CustomBottomBar extends StatefulWidget {
+  const CustomBottomBar({super.key});
+
   @override
   _CustomBottomBarState createState() => _CustomBottomBarState();
 }
@@ -37,7 +39,7 @@ class _CustomBottomBarState extends State<CustomBottomBar>
             _currentIndex = index;
           });
         },
-        children: [
+        children: const [
           HomePage(), // Ganti dengan widget HomePage
           HistoryPage(), // Ganti dengan widget HistoryPage
           // UserDataForm(),
@@ -52,12 +54,12 @@ class _CustomBottomBarState extends State<CustomBottomBar>
         color: Colors.white,
         elevation: 8.0,
         shadowColor: Colors.white,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(25),
           topRight: Radius.circular(25),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(12),
             topRight: Radius.circular(12),
           ),
@@ -68,35 +70,35 @@ class _CustomBottomBarState extends State<CustomBottomBar>
                 _currentIndex = index;
                 _pageController.animateToPage(
                   index,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut,
                 );
               });
             },
             items: [
               SalomonBottomBarItem(
-                icon: Icon(Icons.home),
-                title: Text('Home'),
+                icon: const Icon(Icons.home),
+                title: const Text('Home'),
                 selectedColor: Colors.blue,
               ),
               SalomonBottomBarItem(
-                icon: Icon(Icons.history_edu),
-                title: Text('History'),
+                icon: const Icon(Icons.history_edu),
+                title: const Text('History'),
                 selectedColor: Colors.blue,
               ),
               SalomonBottomBarItem(
-                icon: Icon(Icons.add),
-                title: Text('Add'),
+                icon: const Icon(Icons.add),
+                title: const Text('Add'),
                 selectedColor: Colors.blue,
               ),
               SalomonBottomBarItem(
-                icon: Icon(Icons.featured_play_list),
-                title: Text('Feature'),
+                icon: const Icon(Icons.featured_play_list),
+                title: const Text('Feature'),
                 selectedColor: Colors.blue,
               ),
               SalomonBottomBarItem(
-                icon: Icon(Icons.person),
-                title: Text('Profile'),
+                icon: const Icon(Icons.person),
+                title: const Text('Profile'),
                 selectedColor: Colors.blue,
               ),
             ],

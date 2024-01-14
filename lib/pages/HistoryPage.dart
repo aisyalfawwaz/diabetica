@@ -6,6 +6,8 @@ import 'package:diabetica/widgets/YearlyGlucoseBarChart.dart';
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatefulWidget {
+  const HistoryPage({super.key});
+
   @override
   _HistoryPageState createState() => _HistoryPageState();
 }
@@ -26,7 +28,7 @@ class _HistoryPageState extends State<HistoryPage> {
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -40,24 +42,24 @@ class _HistoryPageState extends State<HistoryPage> {
                   YearlyGlucoseBarChart(glucoseData: glucoseData),
                 const SizedBox(height: 20),
                 _buildSectionTitle('Last Glucose Information', Icons.info),
-                SizedBox(height: 10),
-                GlucoseInfoCard(
+                const SizedBox(height: 10),
+                const GlucoseInfoCard(
                   title: 'Glucose',
                   value: '130 mg/dL',
                 ),
-                GlucoseInfoCard(
+                const GlucoseInfoCard(
                   title: 'HbA1c',
                   value: '6.0%',
                 ),
-                GlucoseInfoCard(
+                const GlucoseInfoCard(
                   title: 'Keton',
                   value: 'Negative',
                 ),
-                GlucoseInfoCard(
+                const GlucoseInfoCard(
                   title: 'Diabetes Status',
                   value: 'Normal',
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -74,10 +76,10 @@ class _HistoryPageState extends State<HistoryPage> {
           size: 20,
           color: Colors.blue,
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Text(
           title,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ],
     );
@@ -85,7 +87,7 @@ class _HistoryPageState extends State<HistoryPage> {
 
   Widget _buildTabBar() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -105,7 +107,7 @@ class _HistoryPageState extends State<HistoryPage> {
         });
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: _currentIndex == index ? Colors.blue : Colors.transparent,
@@ -126,7 +128,7 @@ class _HistoryPageState extends State<HistoryPage> {
     return Container(
       height: 200,
       color: Colors.green,
-      child: Center(
+      child: const Center(
         child: Text('Yearly View Widget'),
       ),
     );

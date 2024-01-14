@@ -1,8 +1,5 @@
 import 'package:diabetica/widgets/StatusDetectionContent.dart';
 import 'package:flutter/material.dart';
-import 'package:diabetica/widgets/WeeklyGlucoseBarChart.dart';
-import 'package:diabetica/widgets/MonthlyGlucoseBarChart.dart';
-import 'package:diabetica/widgets/YearlyGlucoseBarChart.dart';
 import 'package:diabetica/models/DataPoint.dart';
 
 class DiabeticaCareCard extends StatefulWidget {
@@ -10,7 +7,7 @@ class DiabeticaCareCard extends StatefulWidget {
   final ValueChanged<int> onTabChanged;
   final List<DataPoint> glucoseData;
 
-  const DiabeticaCareCard({
+  const DiabeticaCareCard({super.key, 
     required this.currentIndex,
     required this.onTabChanged,
     required this.glucoseData,
@@ -76,7 +73,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
 
   Widget _buildSectionTitle(String title, IconData icon) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: Row(
         children: [
           Icon(
@@ -84,10 +81,10 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
             size: 20,
             color: Colors.blue,
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Text(
             title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -96,7 +93,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
 
   Widget _buildTabBar() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -114,7 +111,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
         widget.onTabChanged(index);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color:
@@ -132,24 +129,24 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
   }
 
   Widget _buildAIDetectionContent() {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
           _buildAIFeatureItem('Ketoasidosis', 'Deteksi Ketoasis',
-              Icons.local_hospital, Color.fromARGB(255, 253, 182, 110)),
+              Icons.local_hospital, const Color.fromARGB(255, 253, 182, 110)),
           _buildAIFeatureItem('Neuropati', 'Deteksi Neuropati',
-              Icons.accessibility, Color.fromARGB(255, 110, 204, 41)),
+              Icons.accessibility, const Color.fromARGB(255, 110, 204, 41)),
           _buildAIFeatureItem('Retinopati', 'Deteksi Retinopati',
-              Icons.remove_red_eye, Color.fromARGB(255, 41, 110, 204)),
+              Icons.remove_red_eye, const Color.fromARGB(255, 41, 110, 204)),
         ],
       ),
     );
   }
 
   Widget _buildRecommendationDetectionContent() {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView(
         scrollDirection: Axis.horizontal,
@@ -158,19 +155,19 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
             'Food & Nutrition',
             'Rekomendasi Gizi',
             Icons.restaurant,
-            Color.fromARGB(255, 110, 222, 253),
+            const Color.fromARGB(255, 110, 222, 253),
           ),
           _buildRecommendationFeatureItem(
             'Exercise',
             'Olahraga sesuai',
             Icons.directions_run,
-            Color.fromARGB(255, 204, 177, 41),
+            const Color.fromARGB(255, 204, 177, 41),
           ),
           _buildRecommendationFeatureItem(
             'Other Therapy',
             'Terapi Lain',
             Icons.healing,
-            Color.fromARGB(255, 41, 110, 204),
+            const Color.fromARGB(255, 41, 110, 204),
           ),
         ],
       ),
@@ -178,7 +175,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
   }
 
   Widget _buildStatusDetectionContent() {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView(
         scrollDirection: Axis.horizontal,
@@ -187,21 +184,21 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
             'Heart Rate',
             'BPM',
             Icons.favorite,
-            Color.fromARGB(255, 41, 110, 204),
+            const Color.fromARGB(255, 41, 110, 204),
             '78', // Replace with actual heart rate value
           ),
           _buildStatusFeatureItem(
             'Diabetes Risk',
             '%',
             Icons.calculate,
-            Color.fromARGB(255, 110, 222, 253),
+            const Color.fromARGB(255, 110, 222, 253),
             '35', // Replace with actual diabetes risk value
           ),
           _buildStatusFeatureItem(
             'Exercise',
             'Steps',
             Icons.directions_run,
-            Color.fromARGB(255, 253, 182, 110),
+            const Color.fromARGB(255, 253, 182, 110),
             '12000', // Replace with actual step count
           ),
           // Add more status features as needed
@@ -214,7 +211,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
       String feature, String description, IconData icon, Color cardColor) {
     return Container(
       width: 150,
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Card(
         color: cardColor,
         shape: RoundedRectangleBorder(
@@ -222,7 +219,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
         ),
         elevation: 2.0,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment:
                 CrossAxisAlignment.start, // Meletakkan konten ke kiri
@@ -238,19 +235,19 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               Text(
                 feature,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 description,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13,
                   color: Colors.white,
                 ),
@@ -267,7 +264,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
       String feature, String description, IconData icon, Color cardColor) {
     return Container(
       width: 150,
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Card(
         color: cardColor,
         shape: RoundedRectangleBorder(
@@ -275,7 +272,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
         ),
         elevation: 2.0,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment:
                 CrossAxisAlignment.start, // Meletakkan konten ke kiri
@@ -291,19 +288,19 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               Text(
                 feature,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 description,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13,
                   color: Colors.white,
                 ),
@@ -320,7 +317,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
       Color cardColor, String value) {
     return Container(
       width: 150,
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Card(
         color: cardColor,
         shape: RoundedRectangleBorder(
@@ -328,18 +325,18 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
         ),
         elevation: 2.0,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AnimatedContainer(
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 height: 60,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     RotationTransition(
-                      turns: AlwaysStoppedAnimation(45 / 360),
+                      turns: const AlwaysStoppedAnimation(45 / 360),
                       child: Icon(
                         icon,
                         size: 40,
@@ -349,19 +346,19 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
                   ],
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 feature,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               AnimatedDefaultTextStyle(
-                duration: Duration(milliseconds: 500),
-                style: TextStyle(
+                duration: const Duration(milliseconds: 500),
+                style: const TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                 ),
@@ -370,10 +367,10 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 unit,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: Colors.white,
                 ),

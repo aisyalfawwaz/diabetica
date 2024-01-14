@@ -5,7 +5,7 @@ class QuickAccessButton extends StatefulWidget {
   final String label;
   final VoidCallback onPressed;
 
-  const QuickAccessButton({
+  const QuickAccessButton({super.key, 
     required this.icon,
     required this.label,
     required this.onPressed,
@@ -44,7 +44,7 @@ class _QuickAccessButtonState extends State<QuickAccessButton> {
             size: 40,
             color: _isTapped ? Colors.blue.withOpacity(0.5) : Colors.black,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(widget.label),
         ],
       ),
@@ -58,7 +58,7 @@ class InformationCard extends StatefulWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  const InformationCard({
+  const InformationCard({super.key, 
     required this.title,
     required this.description,
     required this.icon,
@@ -93,7 +93,7 @@ class _InformationCardState extends State<InformationCard> {
         child: InkWell(
           onTap: widget.onTap,
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -102,12 +102,12 @@ class _InformationCardState extends State<InformationCard> {
                   size: 36,
                   color: _isHovered ? Colors.blue : Colors.black,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   widget.title,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(widget.description),
               ],
             ),

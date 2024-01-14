@@ -1,47 +1,37 @@
+import 'package:diabetica/widgets/AddMedicineForm.dart';
 import 'package:flutter/material.dart';
 
-class AddMedicinePage extends StatelessWidget {
+class AddMedicinePage extends StatefulWidget {
+  const AddMedicinePage({Key? key}) : super(key: key);
+
+  @override
+  _AddMedicinePageState createState() => _AddMedicinePageState();
+}
+
+class _AddMedicinePageState extends State<AddMedicinePage> {
+  String _selectedMedicineType = 'Oral';
+  TextEditingController _dosageController = TextEditingController();
+  TextEditingController _timeController = TextEditingController();
+  DateTime _selectedDateTime = DateTime.now();
+
+  Future<void> _selectDateTime(BuildContext context) async {
+    // Add logic to select date and time
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Medicine'),
+        title: const Text('Add Medicine'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Medicine Name'),
-              // Add logic to handle the medicine name input
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Medicine Type'),
-              // Add logic to handle the medicine type input
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Dosage'),
-              // Add logic to handle the dosage input
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Time'),
-              // Add logic to handle the time input
-            ),
-            SwitchListTile(
-              title: Text('Turn on Notification'),
-              value: false,
-              onChanged: (value) {
-                // Add logic to handle notification switch
-              },
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Add logic to save medicine details
-              },
-              child: Text('Save'),
-            ),
-          ],
+        padding: const EdgeInsets.all(20.0),
+        child: AddMedicineForm(
+          selectedMedicineType: _selectedMedicineType,
+          dosageController: _dosageController,
+          timeController: _timeController,
+          selectedDateTime: _selectedDateTime,
+          selectDateTime: _selectDateTime,
         ),
       ),
     );

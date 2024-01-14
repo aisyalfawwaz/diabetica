@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DiabeticaCareWidget extends StatefulWidget {
+  const DiabeticaCareWidget({Key? key}) : super(key: key);
+
   @override
   _DiabeticaCareWidgetState createState() => _DiabeticaCareWidgetState();
 }
@@ -17,19 +19,19 @@ class _DiabeticaCareWidgetState extends State<DiabeticaCareWidget> {
             // Rounded rectangle for scroll indication
             Container(
               height: 20,
-              margin: EdgeInsets.only(top: 10),
+              margin: const EdgeInsets.only(top: 10),
               decoration: BoxDecoration(
                 color: Colors.grey[300],
                 borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(20)),
+                    const BorderRadius.vertical(bottom: Radius.circular(20)),
               ),
             ),
             // Diabetica Care Feature
-            DiabeticaCareFeature(),
+            const DiabeticaCareFeature(),
             // Menu Detection
-            DiabeticaMenu(title: 'Detection', icon: Icons.search),
+            const DiabeticaMenu(title: 'Detection', icon: Icons.search),
             // Menu Complication
-            DiabeticaMenu(title: 'Complication', icon: Icons.warning),
+            const DiabeticaMenu(title: 'Complication', icon: Icons.warning),
             // Additional features/icons
             DiabeticaFeatureIcons(),
           ],
@@ -41,7 +43,7 @@ class _DiabeticaCareWidgetState extends State<DiabeticaCareWidget> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       setState(() {
         showBottomSheet = true;
       });
@@ -50,11 +52,13 @@ class _DiabeticaCareWidgetState extends State<DiabeticaCareWidget> {
 }
 
 class DiabeticaCareFeature extends StatelessWidget {
+  const DiabeticaCareFeature({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.blue,
         borderRadius: BorderRadius.circular(15),
@@ -63,11 +67,11 @@ class DiabeticaCareFeature extends StatelessWidget {
             color: Colors.black.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
-      child: Center(
+      child: const Center(
         child: Text(
           'Diabetica Care Feature',
           style: TextStyle(
@@ -85,7 +89,8 @@ class DiabeticaMenu extends StatelessWidget {
   final String title;
   final IconData icon;
 
-  DiabeticaMenu({required this.title, required this.icon});
+  const DiabeticaMenu({Key? key, required this.title, required this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +105,7 @@ class DiabeticaMenu extends StatelessWidget {
       },
       child: Card(
         elevation: 2,
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -122,6 +127,8 @@ class DiabeticaFeatureIcons extends StatelessWidget {
     Icons.fitness_center,
     Icons.restaurant_menu,
   ];
+
+  DiabeticaFeatureIcons({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

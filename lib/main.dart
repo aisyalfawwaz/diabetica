@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: CustomBottomBar(),
       // home: DiabeticaOnboarding(),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }

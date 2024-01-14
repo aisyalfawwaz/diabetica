@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class FeaturesWidget extends StatelessWidget {
+  const FeaturesWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

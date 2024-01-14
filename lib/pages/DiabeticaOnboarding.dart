@@ -22,22 +22,22 @@ class DiabeticaOnboardingPage extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Poppins',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               description,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontFamily: 'Poppins',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Image.asset(
               imagePath,
               height: 300,
@@ -51,6 +51,8 @@ class DiabeticaOnboardingPage extends StatelessWidget {
 }
 
 class DiabeticaOnboarding extends StatefulWidget {
+  const DiabeticaOnboarding({super.key});
+
   @override
   _DiabeticaOnboardingState createState() => _DiabeticaOnboardingState();
 }
@@ -113,7 +115,7 @@ class _DiabeticaOnboardingState extends State<DiabeticaOnboarding> {
         onPressed: () {
           if (_currentPage < onboardingData.length - 1) {
             _pageController.nextPage(
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
             );
           } else {
@@ -121,7 +123,7 @@ class _DiabeticaOnboardingState extends State<DiabeticaOnboarding> {
             // after completing the onboarding process.
           }
         },
-        child: Icon(Icons.arrow_forward),
+        child: const Icon(Icons.arrow_forward),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: Padding(

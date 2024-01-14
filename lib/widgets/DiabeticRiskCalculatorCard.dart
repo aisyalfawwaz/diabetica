@@ -25,7 +25,7 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000), // Sesuaikan durasi animasi
+      duration: const Duration(milliseconds: 1000), // Sesuaikan durasi animasi
     );
 
     _animation =
@@ -70,7 +70,7 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
             margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25.0),
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
@@ -90,8 +90,8 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
                     size: 48,
                     color: Colors.white,
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     'Your Diabetic Risk',
                     style: TextStyle(
                       color: Colors.white,
@@ -99,7 +99,7 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   AnimatedBuilder(
                     animation: _controller,
                     builder: (context, child) {
@@ -113,8 +113,8 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
                       );
                     },
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     'This is a description about the risk value.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -122,24 +122,23 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       // Your action here
                     },
-                    child: Text(
-                      'Get Started',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: Colors.blue,
+                      foregroundColor: Colors.blue, backgroundColor: Colors.white,
                       padding:
-                          EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                          const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
+                    ),
+                    child: const Text(
+                      'Get Started',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
