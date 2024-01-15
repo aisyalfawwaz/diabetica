@@ -1,5 +1,5 @@
 import 'package:diabetica/pages/RegisterPage.dart';
-import 'package:diabetica/widgets/CustomBottomDart.dart';
+import 'package:diabetica/widgets/CustomBottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';

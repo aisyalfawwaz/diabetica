@@ -120,8 +120,8 @@ class AddMedicineForm extends StatelessWidget {
                 // Add logic to save medicine details
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue, // Warna latar tombol
-                onPrimary: Colors.white, // Warna teks tombol
+                primary: Colors.blue,
+                onPrimary: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),

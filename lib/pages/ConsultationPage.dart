@@ -1,4 +1,4 @@
-import 'package:diabetica/widgets/ChartWidget.dart';
+import 'package:diabetica/widgets/ChatWidget.dart';
 import 'package:flutter/material.dart';
 
 class ConsultationPage extends StatelessWidget {

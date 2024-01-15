@@ -1,12 +1,20 @@
 import 'package:diabetica/firebase_options.dart';
+import 'package:diabetica/pages/DiabeticaOnboarding.dart';
 import 'package:diabetica/pages/LoginPage.dart';
+import 'package:diabetica/services/RealtimeDatabaseService.dart'; // Import RealtimeDatabaseService
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart'; // Import Firebase Core
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+
+  runApp(
+    RealtimeDatabaseServiceProvider(
+      service: RealtimeDatabaseService(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,9 +29,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: CustomBottomBar(),
-      // home: DiabeticaOnboarding(),
-      home: const LoginPage(),
+      home: DiabeticaOnboarding(),
     );
   }
 }

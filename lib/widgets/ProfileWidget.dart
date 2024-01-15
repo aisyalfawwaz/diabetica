@@ -1,12 +1,15 @@
 import 'package:diabetica/pages/HelpCenterPage.dart';
 import 'package:diabetica/pages/PrivacyPage.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
+
     return SingleChildScrollView(
       child: Center(
         child: ConstrainedBox(
@@ -15,16 +18,17 @@ class ProfileWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 backgroundColor: Color.fromARGB(255, 21, 141, 240),
                 radius: 50,
-                backgroundImage: NetworkImage(
-                  'https://media.licdn.com/dms/image/D5603AQEa0JxS0W--zQ/profile-displayphoto-shrink_800_800/0/1690303844583?e=1710374400&v=beta&t=t8BSULhH6fQSYepG24lJxmca4ToWET6g4Z2RTeLZ_oA',
-                ),
+                backgroundImage: user != null && user.photoURL != null
+                    ? NetworkImage(user.photoURL!)
+                    : AssetImage('assets/placeholder_image.jpg')
+                        as ImageProvider<Object>,
               ),
               const SizedBox(height: 20),
-              const Text(
-                'Aisy Al Fawwaz',
+              Text(
+                user?.displayName ?? '',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -33,8 +37,8 @@ class ProfileWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
-              const Text(
-                '21 Tahun',
+              Text(
+                user?.email ?? '',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
@@ -56,10 +60,10 @@ class ProfileWidget extends StatelessWidget {
                 ); // Handle menu item tap
               }),
               buildMenuCard('Help Center', Icons.help, Colors.purple, () {
-                // Navigasi ke halaman Help Center
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HelpCenterPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const HelpCenterPage()),
                 );
               }),
               buildMenuCard('Sign Out', Icons.exit_to_app, Colors.red, () {

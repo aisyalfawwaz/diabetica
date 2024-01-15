@@ -1,5 +1,6 @@
+import 'package:diabetica/pages/UserMedicalForm.dart';
 import 'package:diabetica/services/AuthService.dart';
-import 'package:diabetica/widgets/CustomBottomDart.dart';
+import 'package:diabetica/widgets/CustomBottomBar.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -31,7 +32,7 @@ class _LoginFormState extends State<LoginForm> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const CustomBottomBar(),
+        builder: (context) => UserMedicalForm(),
       ),
     );
   }
