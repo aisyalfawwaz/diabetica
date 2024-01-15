@@ -1,15 +1,13 @@
 import 'package:diabetica/widgets/FeatureCard.dart';
 import 'package:flutter/material.dart';
+import 'FoodRecommendationPage.dart'; // Import halaman Food Recommendation Page
 
 class FeaturePage extends StatelessWidget {
   const FeaturePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Menggunakan MediaQuery untuk mendapatkan lebar layar
     double screenWidth = MediaQuery.of(context).size.width;
-
-    // Menghitung jumlah kolom berdasarkan lebar layar
     int crossAxisCount = screenWidth > 400 ? 2 : 1;
 
     return Scaffold(
@@ -22,12 +20,23 @@ class FeaturePage extends StatelessWidget {
           crossAxisCount: crossAxisCount,
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
-          children: const [
-            FeatureCard(
-              backgroundColor: Colors.blue,
-              icon: Icons.restaurant,
-              title: 'Food & Nutrition Recommendations',
-              description: '',
+          children: [
+            // Gunakan GestureDetector atau InkWell untuk menangani interaksi ketika widget ditekan
+            GestureDetector(
+              onTap: () {
+                // Navigasi ke halaman Food Recommendation Page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FoodRecommendationPage()),
+                );
+              },
+              child: FeatureCard(
+                backgroundColor: Colors.blue,
+                icon: Icons.restaurant,
+                title: 'Food & Nutrition Recommendations',
+                description: '',
+              ),
             ),
             FeatureCard(
               backgroundColor: Colors.red,

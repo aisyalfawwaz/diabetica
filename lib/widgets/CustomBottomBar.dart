@@ -3,11 +3,12 @@ import 'package:diabetica/pages/HistoryPage.dart';
 import 'package:diabetica/pages/HomePage.dart';
 import 'package:diabetica/pages/MedicineListPage.dart';
 import 'package:diabetica/pages/ProfilePage.dart';
+import 'package:diabetica/pages/TrackingHealthPage.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class CustomBottomBar extends StatefulWidget {
-  const CustomBottomBar({super.key});
+  const CustomBottomBar({Key? key}) : super(key: key);
 
   @override
   _CustomBottomBarState createState() => _CustomBottomBarState();
@@ -39,14 +40,12 @@ class _CustomBottomBarState extends State<CustomBottomBar>
             _currentIndex = index;
           });
         },
-        children: const [
+        children: [
           HomePage(), // Ganti dengan widget HomePage
           HistoryPage(), // Ganti dengan widget HistoryPage
-          // UserDataForm(),
-          ConsultationPage(),
-          // DataFetchingPage(),
+          // ConsultationPage(),
+          TrackingHealthPage(),
           MedicineListPage(),
-          // FeaturePage(),
           ProfilePage(),
         ],
       ),

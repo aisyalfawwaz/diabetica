@@ -4,7 +4,8 @@ class GlucoseInfoCard extends StatelessWidget {
   final String title;
   final String value;
 
-  const GlucoseInfoCard({super.key, 
+  const GlucoseInfoCard({
+    super.key,
     required this.title,
     required this.value,
   });
@@ -81,7 +82,8 @@ class GlucoseInfoCard extends StatelessWidget {
                 ),
               ],
             ),
-            const Icon(Icons.arrow_forward_ios), // Optional: Add navigation arrow
+            const Icon(
+                Icons.arrow_forward_ios), // Optional: Add navigation arrow
           ],
         ),
       ),

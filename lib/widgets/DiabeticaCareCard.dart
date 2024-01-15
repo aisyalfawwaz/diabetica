@@ -1,3 +1,4 @@
+import 'package:diabetica/pages/FoodRecommendationPage.dart';
 import 'package:diabetica/widgets/StatusDetectionContent.dart';
 import 'package:flutter/material.dart';
 import 'package:diabetica/models/DataPoint.dart';
@@ -7,7 +8,8 @@ class DiabeticaCareCard extends StatefulWidget {
   final ValueChanged<int> onTabChanged;
   final List<DataPoint> glucoseData;
 
-  const DiabeticaCareCard({super.key, 
+  const DiabeticaCareCard({
+    super.key,
     required this.currentIndex,
     required this.onTabChanged,
     required this.glucoseData,
@@ -151,11 +153,21 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          _buildRecommendationFeatureItem(
-            'Food & Nutrition',
-            'Rekomendasi Gizi',
-            Icons.restaurant,
-            const Color.fromARGB(255, 110, 222, 253),
+          GestureDetector(
+            onTap: () {
+              // Navigasi ke halaman Food Recommendation Page
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => FoodRecommendationPage()),
+              );
+            },
+            child: _buildRecommendationFeatureItem(
+              'Food & Nutrition',
+              'Rekomendasi Gizi',
+              Icons.restaurant,
+              const Color.fromARGB(255, 110, 222, 253),
+            ),
           ),
           _buildRecommendationFeatureItem(
             'Exercise',
