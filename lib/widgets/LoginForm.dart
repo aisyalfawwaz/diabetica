@@ -1,3 +1,4 @@
+import 'package:diabetica/pages/DiabetesQuestionPage.dart';
 import 'package:diabetica/pages/UserMedicalForm.dart';
 import 'package:diabetica/services/AuthService.dart';
 import 'package:diabetica/widgets/CustomBottomBar.dart';
@@ -32,7 +33,7 @@ class _LoginFormState extends State<LoginForm> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => UserMedicalForm(),
+        builder: (context) => DiabetesQuestionPage(),
       ),
     );
   }
