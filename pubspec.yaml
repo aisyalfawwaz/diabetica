@@ -58,6 +58,8 @@ dependencies:
   datetime_picker_formfield: ^2.0.0
   badges: ^3.1.2
   firebase_database: ^10.4.0
+  flutter_blue_plus: ^1.31.8
+
 
 
 

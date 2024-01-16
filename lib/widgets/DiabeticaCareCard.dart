@@ -1,3 +1,4 @@
+import 'package:diabetica/pages/ConsultationPage.dart';
 import 'package:diabetica/pages/FoodRecommendationPage.dart';
 import 'package:diabetica/widgets/StatusDetectionContent.dart';
 import 'package:flutter/material.dart';
@@ -175,11 +176,26 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
             Icons.directions_run,
             const Color.fromARGB(255, 204, 177, 41),
           ),
+          GestureDetector(
+            onTap: () {
+              // Navigasi ke halaman Food Recommendation Page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ConsultationPage()),
+              );
+            },
+            child: _buildRecommendationFeatureItem(
+              'Consultation',
+              'Konsultasi',
+              Icons.message,
+              Color.fromARGB(255, 110, 253, 153),
+            ),
+          ),
           _buildRecommendationFeatureItem(
             'Other Therapy',
             'Terapi Lain',
             Icons.healing,
-            const Color.fromARGB(255, 41, 110, 204),
+            Color.fromARGB(255, 172, 100, 40),
           ),
         ],
       ),
