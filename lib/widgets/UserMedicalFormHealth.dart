@@ -1,3 +1,4 @@
+import 'package:diabetica/pages/BleDiabeticaConnect.dart';
 import 'package:diabetica/widgets/CustomBottomBar.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +68,7 @@ class _UserMedicalFormHealthState extends State<UserMedicalFormHealth> {
           ElevatedButton(
             onPressed: () {
               // Save health information
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => CustomBottomBar()),
               );

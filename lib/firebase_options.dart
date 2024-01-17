@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '571812375124',
     projectId: 'diabetica-1e76e',
     storageBucket: 'diabetica-1e76e.appspot.com',
-    iosClientId: '571812375124-t3avne357a0jdhj11p7djbul04f0faqr.apps.googleusercontent.com',
+    iosClientId:
+        '571812375124-t3avne357a0jdhj11p7djbul04f0faqr.apps.googleusercontent.com',
     iosBundleId: 'com.example.diabetica',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '571812375124',
     projectId: 'diabetica-1e76e',
     storageBucket: 'diabetica-1e76e.appspot.com',
-    iosClientId: '571812375124-kj79gmtrulfd1p9c72qvakgub87gu48e.apps.googleusercontent.com',
+    iosClientId:
+        '571812375124-kj79gmtrulfd1p9c72qvakgub87gu48e.apps.googleusercontent.com',
     iosBundleId: 'com.example.diabetica.RunnerTests',
   );
 }

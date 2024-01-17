@@ -53,12 +53,13 @@ dependencies:
   shimmer: ^2.0.0
   percent_indicator: ^4.0.1
   circular_seek_bar: ^1.1.0
-  # flutter_reactive_ble: ^5.2.0
   permission_handler: ^11.1.0
   datetime_picker_formfield: ^2.0.0
   badges: ^3.1.2
   firebase_database: ^10.4.0
   flutter_blue_plus: ^1.31.8
+
+  get: ^4.6.6
 
 
 

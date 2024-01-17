@@ -1,6 +1,5 @@
-import 'package:diabetica/pages/DataFetchingPage.dart';
+import 'package:diabetica/pages/BleDiabeticaConnect.dart';
 import 'package:diabetica/pages/DataFetchingScreen.dart';
-import 'package:diabetica/pages/DiabeticaBLE.dart';
 import 'package:flutter/material.dart';
 
 class DiabeticRiskCard extends StatelessWidget {
@@ -46,8 +45,7 @@ class DiabeticRiskCard extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const DataFetchingScreen()),
+                                builder: (context) => DeviceListScreen()),
                           );
                         },
                         child: const Text('Get Started'),

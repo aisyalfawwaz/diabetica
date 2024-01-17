@@ -32,75 +32,98 @@ class _CustomBottomBarState extends State<CustomBottomBar>
   Widget build(BuildContext context) {
     super.build(context); // Ensure that super.build is called
 
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        children: [
-          HomePage(), // Ganti dengan widget HomePage
-          HistoryPage(), // Ganti dengan widget HistoryPage
-          // ConsultationPage(),
-          TrackingHealthPage(),
-          MedicineListPage(),
-          ProfilePage(),
-        ],
-      ),
-      bottomNavigationBar: PhysicalModel(
-        color: Colors.white,
-        elevation: 8.0,
-        shadowColor: Colors.white,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(25),
-          topRight: Radius.circular(25),
+    return WillPopScope(
+      onWillPop: () async {
+        // Menutup aplikasi saat tombol kembali ditekan
+        return await showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text('Exit App'),
+                content: Text('Are you sure you want to exit Diabetica ?'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text('No'),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(true),
+                    child: Text('Yes'),
+                  ),
+                ],
+              ),
+            ) ??
+            false;
+      },
+      child: Scaffold(
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          children: [
+            HomePage(), // Ganti dengan widget HomePage
+            HistoryPage(), // Ganti dengan widget HistoryPage
+            // ConsultationPage(),
+            TrackingHealthPage(),
+            MedicineListPage(),
+            ProfilePage(),
+          ],
         ),
-        child: ClipRRect(
+        bottomNavigationBar: PhysicalModel(
+          color: Colors.white,
+          elevation: 8.0,
+          shadowColor: Colors.white,
           borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
+            topLeft: Radius.circular(25),
+            topRight: Radius.circular(25),
           ),
-          child: SalomonBottomBar(
-            currentIndex: _currentIndex,
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-                _pageController.animateToPage(
-                  index,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeInOut,
-                );
-              });
-            },
-            items: [
-              SalomonBottomBarItem(
-                icon: const Icon(Icons.home),
-                title: const Text('Home'),
-                selectedColor: Colors.blue,
-              ),
-              SalomonBottomBarItem(
-                icon: const Icon(Icons.history_edu),
-                title: const Text('History'),
-                selectedColor: Colors.blue,
-              ),
-              SalomonBottomBarItem(
-                icon: const Icon(Icons.add),
-                title: const Text('Add'),
-                selectedColor: Colors.blue,
-              ),
-              SalomonBottomBarItem(
-                icon: const Icon(Icons.featured_play_list),
-                title: const Text('Feature'),
-                selectedColor: Colors.blue,
-              ),
-              SalomonBottomBarItem(
-                icon: const Icon(Icons.person),
-                title: const Text('Profile'),
-                selectedColor: Colors.blue,
-              ),
-            ],
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
+            ),
+            child: SalomonBottomBar(
+              currentIndex: _currentIndex,
+              onTap: (index) {
+                setState(() {
+                  _currentIndex = index;
+                  _pageController.animateToPage(
+                    index,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                });
+              },
+              items: [
+                SalomonBottomBarItem(
+                  icon: const Icon(Icons.home),
+                  title: const Text('Home'),
+                  selectedColor: Colors.blue,
+                ),
+                SalomonBottomBarItem(
+                  icon: const Icon(Icons.history_edu),
+                  title: const Text('History'),
+                  selectedColor: Colors.blue,
+                ),
+                SalomonBottomBarItem(
+                  icon: const Icon(Icons.add),
+                  title: const Text('Add'),
+                  selectedColor: Colors.blue,
+                ),
+                SalomonBottomBarItem(
+                  icon: const Icon(Icons.featured_play_list),
+                  title: const Text('Feature'),
+                  selectedColor: Colors.blue,
+                ),
+                SalomonBottomBarItem(
+                  icon: const Icon(Icons.person),
+                  title: const Text('Profile'),
+                  selectedColor: Colors.blue,
+                ),
+              ],
+            ),
           ),
         ),
       ),

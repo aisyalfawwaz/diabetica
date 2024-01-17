@@ -128,9 +128,10 @@ class _DiabeticRiskCalculatorCardState extends State<DiabeticRiskCalculatorCard>
                       // Your action here
                     },
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.blue, backgroundColor: Colors.white,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                      foregroundColor: Colors.blue,
+                      backgroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),

@@ -1,9 +1,8 @@
 import 'package:diabetica/firebase_options.dart';
 import 'package:diabetica/pages/DiabeticaOnboarding.dart';
-import 'package:diabetica/pages/LoginPage.dart';
 import 'package:diabetica/services/RealtimeDatabaseService.dart'; // Import RealtimeDatabaseService
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart'; // Import Firebase Core
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +29,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: DiabeticaOnboarding(),
+      // home: FlutterBlueApp(),
       home: DiabeticaOnboarding(),
     );
   }

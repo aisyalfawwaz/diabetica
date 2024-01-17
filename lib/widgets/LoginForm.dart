@@ -1,7 +1,5 @@
-import 'package:diabetica/pages/DiabetesQuestionPage.dart';
 import 'package:diabetica/pages/UserMedicalForm.dart';
 import 'package:diabetica/services/AuthService.dart';
-import 'package:diabetica/widgets/CustomBottomBar.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -30,10 +28,10 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void signinsementara(BuildContext context) {
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => DiabetesQuestionPage(),
+        builder: (context) => UserMedicalForm(),
       ),
     );
   }

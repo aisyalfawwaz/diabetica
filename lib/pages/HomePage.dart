@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                   const Text(
                     'How do you exercise today?',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

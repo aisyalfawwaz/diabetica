@@ -11,7 +11,7 @@ class EmoticonButton extends StatelessWidget {
     required this.icon,
     this.buttonColor = Colors.blue, // Warna latar belakang button
     this.iconColor = Colors.white, // Warna ikon
-    this.iconSize = 36.0, // Ukuran ikon default
+    this.iconSize = 42.0, // Ukuran ikon default
   }) : super(key: key);
 
   @override

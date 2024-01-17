@@ -14,28 +14,28 @@ class _UserMedicalFormState extends State<UserMedicalForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Medical Form'),
-      ),
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _currentPage = index;
-          });
-        },
-        children: [
-          UserMedicalFormPersonal(
-            onNextPressed: () {
-              _pageController.animateToPage(
-                1,
-                duration: Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-              );
-            },
-          ),
-          UserMedicalFormHealth(),
-        ],
+      body: Padding(
+        padding: EdgeInsets.only(top: 36), // Tambahkan margin atas di sini
+        child: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              _currentPage = index;
+            });
+          },
+          children: [
+            UserMedicalFormPersonal(
+              onNextPressed: () {
+                _pageController.animateToPage(
+                  1,
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                );
+              },
+            ),
+            UserMedicalFormHealth(),
+          ],
+        ),
       ),
     );
   }
