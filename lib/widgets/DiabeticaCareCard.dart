@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:diabetica/models/DataPoint.dart';
 import 'package:diabetica/pages/ConsultationPage.dart';
 import 'package:diabetica/pages/FoodRecommendationPage.dart';
 import 'package:diabetica/widgets/StatusDetectionContent.dart';
-import 'package:flutter/material.dart';
-import 'package:diabetica/models/DataPoint.dart';
 
 class DiabeticaCareCard extends StatefulWidget {
   final int currentIndex;
@@ -28,7 +28,7 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
-      elevation: 1.0,
+      elevation: 5.0,
       child: Column(
         children: [
           _buildSectionTitle('Diabetica Care', Icons.medical_information),
@@ -39,16 +39,16 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
             StatusDetectionContent(
               statusFeatures: [
                 StatusFeature(
-                  name: "Diabetes",
-                  unit: "mg/dL",
-                  icon: Icons.favorite,
+                  name: "Diabetes Risk",
+                  unit: "%",
+                  icon: Icons.crop_square_sharp,
                   cardColor: Colors.red,
-                  value: "120",
+                  value: "78",
                 ),
                 StatusFeature(
                   name: "Blood Pressure",
                   unit: "mmHg",
-                  icon: Icons.waves,
+                  icon: Icons.bloodtype,
                   cardColor: Colors.blue,
                   value: "120/80",
                 ),
@@ -156,7 +156,6 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
         children: [
           GestureDetector(
             onTap: () {
-              // Navigasi ke halaman Food Recommendation Page
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -178,7 +177,6 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
           ),
           GestureDetector(
             onTap: () {
-              // Navigasi ke halaman Food Recommendation Page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ConsultationPage()),
@@ -202,39 +200,6 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
     );
   }
 
-  Widget _buildStatusDetectionContent() {
-    return SizedBox(
-      height: 200,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          _buildStatusFeatureItem(
-            'Heart Rate',
-            'BPM',
-            Icons.favorite,
-            const Color.fromARGB(255, 41, 110, 204),
-            '78', // Replace with actual heart rate value
-          ),
-          _buildStatusFeatureItem(
-            'Diabetes Risk',
-            '%',
-            Icons.calculate,
-            const Color.fromARGB(255, 110, 222, 253),
-            '35', // Replace with actual diabetes risk value
-          ),
-          _buildStatusFeatureItem(
-            'Exercise',
-            'Steps',
-            Icons.directions_run,
-            const Color.fromARGB(255, 253, 182, 110),
-            '12000', // Replace with actual step count
-          ),
-          // Add more status features as needed
-        ],
-      ),
-    );
-  }
-
   Widget _buildAIFeatureItem(
       String feature, String description, IconData icon, Color cardColor) {
     return Container(
@@ -249,12 +214,10 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.start, // Meletakkan konten ke kiri
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.start, // Meletakkan ikon ke kiri
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Icon(
                     icon,
@@ -302,12 +265,10 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.start, // Meletakkan konten ke kiri
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.start, // Meletakkan ikon ke kiri
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Icon(
                     icon,
@@ -330,76 +291,6 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
                 description,
                 style: const TextStyle(
                   fontSize: 13,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildStatusFeatureItem(String feature, String unit, IconData icon,
-      Color cardColor, String value) {
-    return Container(
-      width: 150,
-      margin: const EdgeInsets.all(8.0),
-      child: Card(
-        color: cardColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        elevation: 2.0,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 500),
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    RotationTransition(
-                      turns: const AlwaysStoppedAnimation(45 / 360),
-                      child: Icon(
-                        icon,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                feature,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 4),
-              AnimatedDefaultTextStyle(
-                duration: const Duration(milliseconds: 500),
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-                child: Text(
-                  value,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                unit,
-                style: const TextStyle(
-                  fontSize: 12,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,

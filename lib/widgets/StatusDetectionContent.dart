@@ -45,21 +45,21 @@ class _StatusDetectionContentState extends State<StatusDetectionContent> {
               Container(
                 width: 56,
                 height: 56,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white,
+                  color: feature.cardColor,
                 ),
                 child: Center(
                   child: ClipOval(
                     child: Container(
                       width: 40,
                       height: 40,
-                      color: feature.cardColor,
+                      color: Colors.white,
                       child: Center(
                         child: Icon(
                           feature.icon,
                           size: 30,
-                          color: Colors.white,
+                          color: feature.cardColor,
                         ),
                       ),
                     ),
@@ -81,7 +81,7 @@ class _StatusDetectionContentState extends State<StatusDetectionContent> {
                 style: const TextStyle(
                   fontSize: 26,
                   color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                 ),
                 child: Text(
                   feature.value,
@@ -92,8 +92,9 @@ class _StatusDetectionContentState extends State<StatusDetectionContent> {
               Text(
                 feature.unit,
                 style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 248, 247, 247),
                 ),
                 textAlign: TextAlign.center,
               ),

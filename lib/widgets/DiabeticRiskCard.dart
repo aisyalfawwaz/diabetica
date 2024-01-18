@@ -1,5 +1,4 @@
 import 'package:diabetica/pages/BleDiabeticaConnect.dart';
-import 'package:diabetica/pages/DataFetchingScreen.dart';
 import 'package:flutter/material.dart';
 
 class DiabeticRiskCard extends StatelessWidget {

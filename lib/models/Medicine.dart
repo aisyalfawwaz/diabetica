@@ -1,28 +1,36 @@
+import 'package:meta/meta.dart';
+
 class Medicine {
-  final int? id;
-  final String name;
-  final String type;
+  final String id;
+  final String userId;
+  final String medicalName;
+  final String medicineType;
   final String dosage;
-  final String? time;
-  final bool isNotificationOn;
+  final String time;
+  final String createdAt;
+  final String updatedAt;
 
   Medicine({
-    this.id,
-    required this.name,
-    required this.type,
+    required this.id,
+    required this.userId,
+    required this.medicalName,
+    required this.medicineType,
     required this.dosage,
-    this.time,
-    required this.isNotificationOn,
+    required this.time,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'type': type,
-      'dosage': dosage,
-      'time': time,
-      'is_notification_on': isNotificationOn ? 1 : 0,
-    };
+  factory Medicine.fromJson(Map<String, dynamic> json) {
+    return Medicine(
+      id: json['id'] ?? '',
+      userId: json['userid'] ?? '',
+      medicalName: json['medicalName'] ?? '',
+      medicineType: json['medicineType'] ?? '',
+      dosage: json['dosage'] ?? '',
+      time: json['time'] ?? '',
+      createdAt: json['createdAt'] ?? '',
+      updatedAt: json['updatedAt'] ?? '',
+    );
   }
 }

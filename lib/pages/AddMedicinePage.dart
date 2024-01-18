@@ -13,6 +13,8 @@ class _AddMedicinePageState extends State<AddMedicinePage> {
   String _selectedMedicineType = 'Oral';
   TextEditingController _dosageController = TextEditingController();
   TextEditingController _timeController = TextEditingController();
+  TextEditingController _medicineNameController =
+      TextEditingController(); // Add this line
   DateTime _selectedDateTime = DateTime.now();
 
   Future<void> _selectDateTime(BuildContext context) async {
@@ -68,6 +70,12 @@ class _AddMedicinePageState extends State<AddMedicinePage> {
           timeController: _timeController,
           selectedDateTime: _selectedDateTime,
           selectDateTime: _selectDateTime,
+          medicineNameController: _medicineNameController,
+          onMedicineTypeChanged: (newMedicineType) {
+            setState(() {
+              _selectedMedicineType = newMedicineType;
+            });
+          },
         ),
       ),
     );

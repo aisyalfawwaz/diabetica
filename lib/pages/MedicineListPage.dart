@@ -11,15 +11,13 @@ class MedicineListPage extends StatefulWidget {
 }
 
 class _MedicineListPageState extends State<MedicineListPage> {
-  final List<Medicine> medicines = dummyMedicines;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Medicine List'),
       ),
-      body: MedicineListWidget(medicines: medicines),
+      body: MedicineListWidget(),
       // other properties...
     );
   }

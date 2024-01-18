@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 class DiabeticaCareService {
@@ -15,11 +17,24 @@ class DiabeticaCareService {
         }).toList();
       } else {
         // Handle error
-        print('Failed to fetch images');
+        print('Failed to fetch images. Status Code: ${response.statusCode}');
         return [];
       }
+    } on DioError catch (e) {
+      // Handle Dio errors
+      if (e.type == DioErrorType.other) {
+        if (e.error is SocketException) {
+          print('Connection error: ${e.error}');
+        }
+      } else if (e.type == DioErrorType.response) {
+        print('Dio response error: ${e.response?.statusCode}');
+      } else {
+        print('Dio error: $e');
+      }
+
+      return [];
     } catch (e) {
-      // Handle exception
+      // Handle other exceptions
       print('Error: $e');
       return [];
     }

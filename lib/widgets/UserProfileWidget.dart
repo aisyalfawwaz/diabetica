@@ -23,7 +23,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(4.0),
                     child: CircleAvatar(
                       radius: 30,
                       backgroundImage: user.photoURL != null
@@ -45,11 +45,11 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
-                        user.email ??
-                            '', // Replace with the appropriate profile information
-                        style: TextStyle(fontSize: 16),
-                      ),
+                      // Text(
+                      //   user.email ??
+                      //       '', // Replace with the appropriate profile information
+                      //   style: TextStyle(fontSize: 16),
+                      // ),
                     ],
                   ),
                 ],

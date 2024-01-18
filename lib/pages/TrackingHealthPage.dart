@@ -1,3 +1,4 @@
+import 'package:diabetica/services/ApiService.dart';
 import 'package:diabetica/widgets/TrackingHealthWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ class TrackingHealthPage extends StatefulWidget {
 
 class _TrackingHealthPageState extends State<TrackingHealthPage> {
   String bloodSugarValue = '';
-  String bloodSugarType = '';
+  bool? bloodSugarType; // Nullable boolean for more flexibility
   String hba1c = '';
   String ketone = '';
   DateTime selectedDateTime = DateTime.now();
@@ -19,9 +20,9 @@ class _TrackingHealthPageState extends State<TrackingHealthPage> {
       appBar: AppBar(
         title: Text('Health Tracking'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -31,7 +32,7 @@ class _TrackingHealthPageState extends State<TrackingHealthPage> {
                 onValueChanged: (value, type) {
                   setState(() {
                     bloodSugarValue = value;
-                    bloodSugarType = type;
+                    bloodSugarType = (type.toLowerCase() == 'true');
                   });
                 },
               ),
@@ -65,6 +66,14 @@ class _TrackingHealthPageState extends State<TrackingHealthPage> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
+                      // Check if bloodSugarType is not null and provide a default value if needed
+                      ApiService.postHealthTrackingData(
+                        bloodSugarValue: bloodSugarValue,
+                        bloodSugarType: bloodSugarType ?? false,
+                        hba1c: hba1c,
+                        ketone: ketone,
+                        selectedDateTime: selectedDateTime,
+                      );
                       // Save the entered values
                       // You can use bloodSugarValue, bloodSugarType, hba1c, and ketone here
                       print('Blood Sugar Value: $bloodSugarValue');

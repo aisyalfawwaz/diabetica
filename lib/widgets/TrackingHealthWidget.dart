@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TrackingHealthWidget extends StatefulWidget {
   final String title;
   final String unit;
-  final Function(String, String) onValueChanged; // Updated callback
+  final Function(String, String) onValueChanged;
 
   TrackingHealthWidget({
     required this.title,
@@ -16,15 +16,21 @@ class TrackingHealthWidget extends StatefulWidget {
 }
 
 class _TrackingHealthWidgetState extends State<TrackingHealthWidget> {
-  String selectedType = 'Fasting'; // Default value
-  late String enteredValue;
-
-  // Map of icons for each health parameter
+  String selectedType = 'Fasting';
+  late TextEditingController
+      textEditingController; // Added TextEditingController
+// Added the Map of icons for each health parameter
   final Map<String, IconData> parameterIcons = {
     'Blood Sugar': Icons.favorite,
     'HbA1c': Icons.timeline,
     'Ketone': Icons.thermostat,
   };
+
+  @override
+  void initState() {
+    super.initState();
+    textEditingController = TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +84,7 @@ class _TrackingHealthWidgetState extends State<TrackingHealthWidget> {
 
   Widget _buildInputField(String labelText) {
     return TextFormField(
+      controller: textEditingController, // Added controller
       style: TextStyle(fontSize: 14),
       decoration: InputDecoration(
         labelText: labelText,
@@ -91,7 +98,9 @@ class _TrackingHealthWidgetState extends State<TrackingHealthWidget> {
       keyboardType: TextInputType.number,
       onChanged: (value) {
         setState(() {
-          enteredValue = value;
+          // Update the controller text when value changes
+          textEditingController.text = value;
+          widget.onValueChanged(value, selectedType);
         });
       },
     );
@@ -122,7 +131,7 @@ class _TrackingHealthWidgetState extends State<TrackingHealthWidget> {
               setState(() {
                 selectedType = value;
               });
-              widget.onValueChanged(enteredValue, selectedType);
+              widget.onValueChanged(textEditingController.text, selectedType);
             }
           },
         ),

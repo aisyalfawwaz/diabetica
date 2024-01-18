@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   cupertino_onboarding: ^1.2.0
   cached_network_image: ^3.1.0
-  survey_kit: ^0.1.1
   salomon_bottom_bar: ^3.3.2
   syncfusion_flutter_charts: ^19.3.47  
   gsform: ^0.1.7
@@ -58,8 +57,9 @@ dependencies:
   badges: ^3.1.2
   firebase_database: ^10.4.0
   flutter_blue_plus: ^1.31.8
-
   get: ^4.6.6
+  flutter_local_notifications: ^16.3.0
+
 
 
 

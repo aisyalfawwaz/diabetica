@@ -5,14 +5,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 class DiabeticaOnboardingPage extends StatelessWidget {
   final String title;
   final String description;
-  final String imagePath;
+  // final String imagePath;
   final Color bacgroundColor;
 
   const DiabeticaOnboardingPage({
     Key? key,
     required this.title,
     required this.description,
-    required this.imagePath,
+    // required this.imagePath,
     required this.bacgroundColor,
   }) : super(key: key);
 
@@ -45,11 +45,11 @@ class DiabeticaOnboardingPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Image.asset(
-              imagePath,
-              height: 300,
-              width: 300,
-            ),
+            // Image.asset(
+            //   imagePath,
+            //   height: 300,
+            //   width: 300,
+            // ),
           ],
         ),
       ),
@@ -109,19 +109,19 @@ class _DiabeticaOnboardingState extends State<DiabeticaOnboarding> {
         'title': 'Welcome to Diabetica',
         'description':
             'Your personal health assistant for managing diabetes and improving your lifestyle.',
-        'imagePath': 'assets/images/onboarding1.png',
+        // 'imagePath': 'assets/images/onboarding1.png',
       },
       {
         'title': 'Monitor Your Health',
         'description':
             'Track your blood sugar levels, daily activities, and manage your diet effortlessly.',
-        'imagePath': 'assets/images/onboarding2.png',
+        // 'imagePath': 'assets/images/onboarding2.png',
       },
       {
         'title': 'Personalized Insights',
         'description':
             'Receive personalized recommendations and insights for a healthier life.',
-        'imagePath': 'assets/images/onboarding3.png',
+        // 'imagePath': 'assets/images/onboarding3.png',
       },
     ];
 
@@ -139,7 +139,7 @@ class _DiabeticaOnboardingState extends State<DiabeticaOnboarding> {
           return DiabeticaOnboardingPage(
             title: data['title']!,
             description: data['description']!,
-            imagePath: data['imagePath']!,
+            // imagePath: data['imagePath']!,
             bacgroundColor: Colors.blue,
           );
         },

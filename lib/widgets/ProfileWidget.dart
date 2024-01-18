@@ -1,12 +1,12 @@
 import 'package:diabetica/pages/HelpCenterPage.dart';
 import 'package:diabetica/pages/PrivacyPage.dart';
+import 'package:diabetica/pages/UserDetailScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({Key? key}) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
     User? user = FirebaseAuth.instance.currentUser;
 
@@ -48,6 +48,13 @@ class ProfileWidget extends StatelessWidget {
               const SizedBox(height: 30),
               // Menu Card Widgets
               buildMenuCard('User Details', Icons.person, Colors.blue, () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => UserDetailScreen(
+                            userId: user!.uid,
+                          )),
+                ); // Handle menu item tap
                 // Handle menu item tap
               }),
               buildMenuCard('Edit Profile', Icons.edit, Colors.orange, () {
@@ -75,33 +82,35 @@ class ProfileWidget extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget buildMenuCard(
-      String title, IconData icon, Color cardColor, VoidCallback onTap) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      color: cardColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: ListTile(
-        title: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        leading: Icon(
-          icon,
+Widget buildMenuCard(
+    String title, IconData icon, Color cardColor, VoidCallback onTap) {
+  User? user = FirebaseAuth.instance.currentUser;
+
+  return Card(
+    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    color: cardColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+    ),
+    child: ListTile(
+      title: Text(
+        title,
+        style: const TextStyle(
           color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
-        trailing: const Icon(
-          Icons.arrow_forward_ios,
-          color: Colors.white,
-        ),
-        onTap: onTap,
       ),
-    );
-  }
+      leading: Icon(
+        icon,
+        color: Colors.white,
+      ),
+      trailing: const Icon(
+        Icons.arrow_forward_ios,
+        color: Colors.white,
+      ),
+      onTap: onTap,
+    ),
+  );
 }

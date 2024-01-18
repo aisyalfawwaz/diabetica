@@ -5,6 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
+  User? get currentUser => FirebaseAuth.instance.currentUser;
+
+  Future<String?> getCurrentUID() async {
+    return currentUser?.uid;
+  }
+
   Future<void> signIn(
       BuildContext context, String email, String password) async {
     try {
