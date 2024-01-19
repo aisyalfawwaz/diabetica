@@ -1,3 +1,4 @@
+import 'package:diabetica/pages/LoginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -16,18 +17,28 @@ class RegisterForm extends StatelessWidget {
         email: emailController.text,
         password: passwordController.text,
       );
-      // Jika registrasi berhasil, lakukan navigasi ke halaman selanjutnya
+
+      // Jika registrasi berhasil, tampilkan snackbar sukses dan pindah ke halaman login
       if (userCredential.user != null) {
-        // Navigator.pushReplacement...
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Registrasion Succes'),
+          ),
+        );
+
+        // Navigasi ke halaman login
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+        );
       }
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        // Tampilkan pesan error untuk password lemah
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        // Tampilkan pesan error jika email sudah terdaftar
-        print('The account already exists for that email.');
-      }
+      // Jika terjadi kesalahan, tampilkan snackbar gagal
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Registrasion Failed. ${e.message}'),
+        ),
+      );
     } catch (e) {
       print(e);
     }

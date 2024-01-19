@@ -41,7 +41,9 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
             final userData = snapshot.data?['data'];
-            return _buildUserDetail(userData);
+            return SingleChildScrollView(
+              child: _buildUserDetail(userData),
+            );
           }
         },
       ),

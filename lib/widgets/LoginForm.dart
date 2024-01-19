@@ -1,5 +1,6 @@
 import 'package:diabetica/pages/UserMedicalForm.dart';
 import 'package:diabetica/services/AuthService.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -17,22 +18,19 @@ class _LoginFormState extends State<LoginForm> {
 
   bool _isObscure = true;
 
-  Future<void> signIn(BuildContext context) async {
-    if (_formKey.currentState!.validate()) {
-      await authService.signIn(
-        context,
-        emailController.text,
-        passwordController.text,
-      );
-    }
-  }
-
-  void signinsementara(BuildContext context) {
-    Navigator.pushReplacement(
+  void signIn(BuildContext context) async {
+    authService.signIn(
       context,
-      MaterialPageRoute(
-        builder: (context) => UserMedicalForm(),
-      ),
+      emailController.text,
+      passwordController.text,
+      (errorMessage) {
+        // Handle error messages here
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Sign-in failed. $errorMessage'),
+          ),
+        );
+      },
     );
   }
 
@@ -106,7 +104,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => signinsementara(context),
+              onPressed: () => signIn(context),
               style: ElevatedButton.styleFrom(
                 primary: Colors.blue,
                 onPrimary: Colors.white,

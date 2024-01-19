@@ -1,6 +1,7 @@
 import 'package:diabetica/pages/HelpCenterPage.dart';
 import 'package:diabetica/pages/PrivacyPage.dart';
 import 'package:diabetica/pages/UserDetailScreen.dart';
+import 'package:diabetica/services/AuthService.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -74,7 +75,7 @@ class ProfileWidget extends StatelessWidget {
                 );
               }),
               buildMenuCard('Sign Out', Icons.exit_to_app, Colors.red, () {
-                // Handle menu item tap
+                _confirmSignOut(context);
               }),
             ],
           ),
@@ -82,6 +83,49 @@ class ProfileWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> _confirmSignOut(BuildContext context) async {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Row(
+          children: [
+            Text('Diabetica'),
+          ],
+        ),
+        content: Text('Are you sure you want to sign out?'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // Close the dialog
+            },
+            child: Row(
+              children: [
+                Icon(Icons.cancel, color: Colors.grey),
+                SizedBox(width: 4),
+                Text('Cancel'),
+              ],
+            ),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.of(context).pop(); // Close the dialog
+              await AuthService().signOut(context); // Sign out
+            },
+            child: Row(
+              children: [
+                Icon(Icons.exit_to_app, color: Colors.red),
+                SizedBox(width: 4),
+                Text('Sign Out'),
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
 }
 
 Widget buildMenuCard(
