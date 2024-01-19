@@ -10,8 +10,8 @@ class ApiService {
     required Map<String, dynamic> userData,
     required Map<String, dynamic> healthData,
   }) async {
-    final Uri apiUrl = Uri.parse(
-        'https://diabetica-1e76e.et.r.appspot.com/api/history/medical-data');
+    final Uri apiUrl =
+        Uri.parse('https://diabetica-1e76e.et.r.appspot.com/api/medical-data');
 
     try {
       final requestData = [
@@ -89,13 +89,24 @@ class ApiService {
   }
 
   static Future<Map<String, dynamic>> getUserDetails(String userId) async {
-    final response = await http.get(Uri.parse(
-        'https://diabetica-1e76e.et.r.appspot.com/api/medical-data/$userId'));
+    try {
+      final response = await http.get(Uri.parse(
+          'https://diabetica-1e76e.et.r.appspot.com/api/medical-data/$userId'));
 
-    if (response.statusCode == 200) {
-      return json.decode(response.body);
-    } else {
-      throw Exception('Failed to load user details');
+      if (response.statusCode == 200) {
+        return json.decode(response.body);
+      } else {
+        print('Response Status Code: ${response.statusCode}');
+        print('Response Body: ${response.body}');
+        // Handle the case where there is an error, e.g., by logging it
+        // and returning a default response indicating the error.
+        return {'error': 'Failed to load user details', 'data': null};
+      }
+    } catch (e) {
+      print('Error loading user details: $e');
+      // Handle the exception, e.g., by logging it
+      // and returning a default response indicating the error.
+      return {'error': 'Failed to load user details', 'data': null};
     }
   }
 

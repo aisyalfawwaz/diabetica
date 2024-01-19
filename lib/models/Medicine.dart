@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 class Medicine {
   final String id;
   final String userId;

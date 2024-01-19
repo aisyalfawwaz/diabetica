@@ -1,3 +1,4 @@
+import 'package:diabetica/pages/DiabeticRetinopathyDetection.dart';
 import 'package:flutter/material.dart';
 import 'package:diabetica/models/DataPoint.dart';
 import 'package:diabetica/pages/ConsultationPage.dart';
@@ -141,8 +142,17 @@ class _DiabeticaCareCardState extends State<DiabeticaCareCard> {
               Icons.local_hospital, const Color.fromARGB(255, 253, 182, 110)),
           _buildAIFeatureItem('Neuropati', 'Deteksi Neuropati',
               Icons.accessibility, const Color.fromARGB(255, 110, 204, 41)),
-          _buildAIFeatureItem('Retinopati', 'Deteksi Retinopati',
-              Icons.remove_red_eye, const Color.fromARGB(255, 41, 110, 204)),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DiabeticRetinopathyDetection()),
+              );
+            },
+            child: _buildAIFeatureItem('Retinopati', 'Deteksi Retinopati',
+                Icons.remove_red_eye, const Color.fromARGB(255, 41, 110, 204)),
+          )
         ],
       ),
     );

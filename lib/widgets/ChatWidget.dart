@@ -1,4 +1,6 @@
+import 'package:diabetica/services/AuthService.dart';
 import 'package:diabetica/services/RealtimeDatabaseService.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -10,8 +12,21 @@ class ChatWidget extends StatefulWidget {
 }
 
 class _ChatWidgetState extends State<ChatWidget> {
+  late User _currentUser; // To store the current user information
+  final AuthService _authService =
+      AuthService(); // Create an instance of AuthService
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentUser();
+  }
+
+  Future<void> _getCurrentUser() async {
+    _currentUser = FirebaseAuth.instance.currentUser!;
+  }
 
   void _sendMessage() {
     if (_messageController.text.isNotEmpty) {
@@ -55,6 +70,16 @@ class _ChatWidgetState extends State<ChatWidget> {
                 }
 
                 final messages = snapshot.data!;
+                messages.sort((a, b) {
+                  final String timestampA = a['timestamp']?.toString() ?? '';
+                  final String timestampB = b['timestamp']?.toString() ?? '';
+                  final DateTime dateTimeA = DateTime.parse(timestampA);
+                  final DateTime dateTimeB = DateTime.parse(timestampB);
+                  return dateTimeB.compareTo(dateTimeA);
+                });
+
+                // ...
+
                 List<Widget> messageWidgets = messages
                     .map((message) {
                       try {
@@ -66,7 +91,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                             message['timestamp']?.toString() ?? '';
 
                         return Align(
-                          alignment: message['userId'] == 'currentUserId'
+                          alignment: message['userId'] == _currentUser.uid
                               ? Alignment.centerRight
                               : Alignment.centerLeft,
                           child: Container(
@@ -74,7 +99,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                                 vertical: 8.0, horizontal: 16.0),
                             padding: const EdgeInsets.all(12.0),
                             decoration: BoxDecoration(
-                              color: message['userId'] == 'currentUserId'
+                              color: message['userId'] == _currentUser.uid
                                   ? Colors.blue
                                   : Colors.grey.shade200,
                               borderRadius: BorderRadius.circular(12.0),
@@ -90,12 +115,12 @@ class _ChatWidgetState extends State<ChatWidget> {
                                     ),
                                     const SizedBox(width: 8.0),
                                     Text(
-                                      'Username', // Replace with the actual username
+                                      _currentUser.displayName ?? 'Username',
                                       style: TextStyle(
-                                        color:
-                                            message['userId'] == 'currentUserId'
-                                                ? Colors.white
-                                                : Colors.black,
+                                        color: message['userId'] ==
+                                                _currentUser.uid
+                                            ? Colors.white
+                                            : Colors.black,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -106,7 +131,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                                   messageText,
                                   style: TextStyle(
                                     fontSize: 16.0,
-                                    color: message['userId'] == 'currentUserId'
+                                    color: message['userId'] == _currentUser.uid
                                         ? Colors.white
                                         : Colors.black,
                                   ),
@@ -118,7 +143,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      _formatTimestamp(timestamp),
+                                      _formatTimestampWIB(timestamp),
                                       style: TextStyle(
                                         color: Colors.grey,
                                       ),
@@ -136,6 +161,8 @@ class _ChatWidgetState extends State<ChatWidget> {
                     })
                     .whereType<Widget>()
                     .toList();
+
+//
 
                 return ListView(
                   controller: _scrollController,
@@ -181,8 +208,10 @@ class _ChatWidgetState extends State<ChatWidget> {
     );
   }
 
-  String _formatTimestamp(String timestamp) {
-    final DateTime dateTime = DateTime.parse(timestamp);
-    return DateFormat.yMd().add_Hms().format(dateTime);
+  String _formatTimestampWIB(String timestamp) {
+    final DateTime dateTime = DateTime.parse(timestamp).toLocal();
+    final String formattedDateTime = DateFormat.yMd().add_Hms().format(
+        dateTime.add(const Duration(hours: 0))); // Adding 7 hours for WIB
+    return formattedDateTime;
   }
 }
